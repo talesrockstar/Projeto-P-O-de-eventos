@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="cabeca">
-            <div class="Logo"> <span>Plannea</span></div>
+            
             <div class="barra_pesquisa">
                 <form action="/search" method="GET">
                     <input type="text" name="query" placeholder="Pesquisar..." class="input_pesquisa">
@@ -26,6 +26,51 @@
             </div>
         </div>
     </header>
+
+    <aside class="sidebar">
+        <a href="/" class="sidebar__brand">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+          <span class="sidebar__title">Plannea</span>
+        </a>
+    
+        <nav class="sidebar__nav">
+          <ul class="sidebar__list">
+            <li class="sidebar__item">
+              <a href="#" class="sidebar_link sidebar_link--active" aria-current="page">
+                <img class="sidebar__icon" src="src/img/Home.svg" alt="">
+                  <use xlink:href="#home"></use>
+                </svg>
+                Início
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#" class="sidebar__link">
+                  <use xlink:href="#table"></use>
+                  <img class="sidebar__icon" src="src/img/Criar_Evento.svg" alt="">
+                </svg>
+                Criar eventos
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#" class="sidebar__link">
+                  <use xlink:href="#grid"></use>
+                  <img class="sidebar__icon" src="src/img/Detalhes de Evento.svg" alt="">
+                </svg>
+                Detalhes de Evento
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#" class="sidebar__link">
+                  <use xlink:href="#people-circle"></use>
+                  <img class="sidebar__icon" src="src/img/Agenda.svg" alt="">
+                </svg>
+                Agenda
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside
 
     <main>
         <div class="nenu">
