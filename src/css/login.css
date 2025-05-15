@@ -1,0 +1,18 @@
+body {
+    background-image: url("../img/img_fundo.png");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.email-input {
+    background-image: url('../img/user.png'); /* ajuste o caminho conforme necessário */
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    padding-left: 40px; /* espaço para o ícone */
+}
+
+.container {
+    text-align: center;
+    justify-content: center;
+}

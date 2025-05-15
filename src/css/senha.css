@@ -1,0 +1,22 @@
+body {
+    background-image: url("../img/img_fundo.png");
+}
+
+header button{
+    background: transparent;
+    border-color: transparent;
+    color: white;
+    
+}
+
+main{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh
+}
+
+.container {
+    text-align: center;
+    justify-content: center;
+}
