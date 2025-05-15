@@ -1,0 +1,22 @@
+body {
+    background-color: #1f1d2b; /* Cor de fundo */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    color: #fff; /* Cor do texto */
+}
+header{
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cabeca {
+    display: flex;
+    justify-content: space-between;
+}
+.seta {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #000; /* Cor da seta */
+    margin: 10px auto; /* Centraliza a seta */
+}

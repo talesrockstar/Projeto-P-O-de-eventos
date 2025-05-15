@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plannea</title>
+    <link rel="stylesheet" href="/src/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="cabeca">
+            <div class="Logo"> <span>Plannea</span></div>
+            <div class="barra_pesquisa">
+                <form action="/search" method="GET">
+                    <input type="text" name="query" placeholder="Pesquisar..." class="input_pesquisa">
+                    <button type="submit" class="botao_pesquisa"><img src="src/img/botao_pesquisa.png"
+                            alt="botao_pesquisa"></button>
+                </form>
+
+                <div class="user"><img src="src/img/User_thomas.jpg" alt="Foto_Usuario">
+                    <div class="seta"></div>
+                    <div class="sininho"><img src="src/img/image.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="nenu">
+            <nav>
+                <span>MENU</span>
+                <ul>
+                    <div class="home">
+                        <button><img src="" alt=""></button>
+                        inicio
+                    </div>
+                    <div class="criar_evento">
+                        <button><img src="" alt=""></button>
+                        Criar Evento
+                    </div>
+                    <div class="detalhes_evento">
+                        <button><img src="" alt=""></button>
+                        Detalhes do Evento
+                    </div>
+                    <div class="agenda/calendario">
+                        <button><img src="" alt=""></button>
+                        Agenda | Calendário
+                    </div>
+                    <div class="feedback">
+                        <button><img src="" alt=""></button>
+                        feedback
+                    </div>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="resumoUser">
+            Resumo do Usuário
+
+            <div class="historico">
+                <ul>
+                    <button>Festa Heitor 17/10</button>
+                    <button>Aniversario 07/10</button>
+                    <button>Summer festival 25/01</button>
+                    <button>Aniversario felipe 16/01</button>
+                    2024...
+                    <button>Festa Heitor 17/10</button>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tempo">
+            <h1>Seu Tempo Conosco</h1>
+            <div class="tempo_total">
+                <p>00:00:00</p>
+                <p>Voce gosta mesmo</p>
+                <p>de farra hein</p>
+            </div>
+        </div>
+
+        <div class="informacoes">
+            <div class="festas_presentes">
+                <h2>Festas Presentes:</h2>
+                <h1>...</h1>
+                <div class="quantidade_FP">
+                    <p>18</p>
+                </div>
+            </div>
+
+            <div class="festas_organizadas">
+                <h2>Festas Organizadas:</h2>
+                <h1>...</h1>
+                <div class="quantidade_FO">
+                    <p>3</p>
+                </div>
+            </div>
+
+            <div class="tempo_festejando">
+                <h2>Tempo Festejando:</h2>
+                <h1>...</h1>
+                <div class="quantidade_TF">
+                    <p>90h</p>
+                </div>
+
+                <div class="convidados">
+                    <h2>Convidados:</h2>
+                    <h1>...</h1>
+                    <div class="quantidade_C">
+                        <p>300</p>
+                    </div>
+                </div>
+    </main>
+    <script>
+        // Recupera o tempo inicial do localStorage ou define como o momento atual
+        let tempoInicial = localStorage.getItem('tempoInicial');
+        if (!tempoInicial) {
+            tempoInicial = Date.now(); // Armazena o timestamp atual
+            localStorage.setItem('tempoInicial', tempoInicial);
+        }
+
+        // Função para formatar o tempo em HH:MM:SS
+        function formatarTempo(ms) {
+            const totalSegundos = Math.floor(ms / 1000);
+            const horas = Math.floor(totalSegundos / 3600);
+            const minutos = Math.floor((totalSegundos % 3600) / 60);
+            const segundos = totalSegundos % 60;
+
+            return `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+        }
+
+        // Atualiza o tempo total no elemento HTML
+        function atualizarTempo() {
+            const agora = Date.now();
+            const tempoTotal = agora - tempoInicial; // Calcula o tempo total em milissegundos
+            const tempoFormatado = formatarTempo(tempoTotal);
+
+            // Exibe o tempo no elemento com a classe "tempo_total"
+            document.querySelector('.tempo_total p').textContent = tempoFormatado;
+        }
+
+        // Atualiza o tempo a cada segundo
+        setInterval(atualizarTempo, 1000);
+    </script>
+</body>
+
+</html>
