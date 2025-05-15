@@ -97,6 +97,26 @@ header{
     justify-content: space-between;
     align-items: center;
 }
+#barra_pesquisa {
+    width: 100%;
+    margin-top: 30px;
+    margin-right: 620px;
+    max-width: 400px; /* Largura máxima da barra de pesquisa */
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: #808191; /* Cor de fundo da barra de pesquisa */
+    color: #ffffff; /* Cor do texto */
+}
+#barra_pesquisa::placeholder {
+    color: #ffffff; /* Cor do texto do placeholder */
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Espaçamento à direita */
+}
 .cabeca {
     display: flex;
     justify-content: space-between;
