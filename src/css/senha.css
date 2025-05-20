@@ -1,5 +1,35 @@
 body {
     background-image: url("../img/img_fundo.png");
+    height: 100vh;
+    font-family: Poppins, 'Inter', sans-serif;
+}
+
+
+.container {
+    text-align: center;
+    justify-content: center;
+}
+
+.container .form {
+    font-family: Poppins, 'Inter', sans-serif;
+    display: left;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 6px;
+    width: 350px;
+    height: 52px;
+    border: white 1px solid;
+}
+
+.email {
+    background-color: transparent;
+    font-family: Poppins, 'Inter', sans-serif;
+
+
+}
+
+.email input {
+    color: white;
 }
 
 header button{
@@ -10,7 +40,7 @@ header button{
 }
 
 main{
-     display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh
@@ -19,4 +49,42 @@ main{
 .container {
     text-align: center;
     justify-content: center;
+}
+.input-svg {
+    position: relative;
+    display: inline-block;
+}
+
+.input-svg svg {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    fill: #999;
+    pointer-events: none;
+}
+
+.input-svg input {
+    padding-left: 40px; /* Espaço para o ícone */
+    height: 32px;
+    font-size: 16px;
+}
+h1 {
+    font-family: Poppins, 'Inter', SemiBold;
+    color: #fff;
+    font-size: 43px;
+    font-family: Poppins, ;
+    margin-bottom: 40px;
+}
+button.btn {
+    font-family: Poppins, 'Inter', sans-serif;
+    justify-content: center;
+    width: 350px;
+    height: 52px;
+    border-radius: 6px;
+    background-color: #FF7551;
+    color: #fff;
+    margin-top: 25px;
 }
