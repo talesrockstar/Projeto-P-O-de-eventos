@@ -1,7 +1,9 @@
 @import url(global.css);
 
 body {
-   background-color: #1F1D2B;
+   background-image: url('../img/background.svg');
+   background-repeat: no-repeat;
+   background-size: cover;
    color: white;
    font-family: Poppins, 'Inter', sans-serif;
    font-size: 1.6rem;
@@ -22,6 +24,18 @@ header{
     height: 100%;
 }
 
+.Plannea h2{
+    color: white;
+    margin: 0;
+}
+
+.Plannea a{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .informacoes_perfil{
     display: flex;
     flex-direction: row;
@@ -29,7 +43,17 @@ header{
     justify-content: space-between;
     width: 19.9rem;
     height: 3.2rem;
-    row-gap: 4rem;
+    gap: 1.5rem;
+}
+
+.perfil {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+.perfil h5 {
+    text-wrap: nowrap;
 }
 
 #fotodeperfil{
@@ -44,28 +68,31 @@ header{
     color: white;
 }
 
+.notification_dot {
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: #ff0000;
+    border-radius: 50%;
+}
+
 main{
     display: flex;
     flex-direction: row;
 }
 
-.menu{
-    width: 28.2rem;
-    padding-left: 4rem;
-    height: 142.3rem;
-    
+.tela_eventos{
+    width: 100%;
+    margin-left: 3rem;
 }
 
-#menu{
+.texto_tela{
+    padding-top: 3rem;
     display: flex;
-    flex-direction: row;
-    gap: 2rem;
-}
-
-.opcoes{
-    display:flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 5rem;
 }
 
 .filtros{
@@ -77,21 +104,40 @@ main{
     margin-top: 3rem;
 }
 
-.tela_eventos{
-    width: 100%;
+.filtros option{
+   color : black
 }
 
-.texto_tela{
-    display: flex;
-    flex-direction: column;
-    gap: 6rem;
-}
 
 .futuros{
     margin-top: 3rem;
 }
 
+.andamento{
+    margin-top: 3rem;
+    font-size: 1.4rem;
+    
+}
+
+.realizados{
+    margin-top: 3rem;
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+}
+
 .carrossel1{
+    margin-top: 3rem;
+    display: flex;
+    gap: 3rem;
+}
+
+.carrossel2{
+    margin-top: 3rem;
+    display: flex;
+    gap: 3rem;
+}
+
+.carrossel3{
     margin-top: 3rem;
     display: flex;
     gap: 3rem;
@@ -102,7 +148,13 @@ main{
     height: 31.3rem;
     border-radius: 2rem;
     background-color: #252836;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
     color: white;
+}
+
+.card img{
+    border-radius: 2rem 2rem 0 0;   
 }
 
 .card-body{
@@ -130,11 +182,11 @@ main{
     color: #808191;
 }
 
-.andamento{
-    margin-top: 3rem;
-    font-size: 1.4rem;
-    
+span{
+    color: #FF7551;
 }
+
+
 
 
 
