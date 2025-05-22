@@ -7,8 +7,11 @@ body {
 
 
 .container {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     justify-content: center;
+    align-items: center;
 }
 
 .container .form {
@@ -126,17 +129,16 @@ button.btn:hover {
     color: white;
     text-decoration: none; 
 }
-.error-message {
-    font-size: 0.9em;
-    color: red;
-    margin-top: 5px;
+
+.mb-3 {
+    width: 350px;
 }
 
-
-@media (max-width: 400px) {
+@media (max-width: 743px) {
     .container {
         width: 100%;
         padding: 10px;
+        
     }
 
     .container .form,
@@ -160,5 +162,22 @@ button.btn:hover {
         width: 18px;
         height: 18px;
         left: 8px;
+    }
+    
+    .mb-3 {
+        width: 240px;
+        
+    }
+}
+
+@media only-screen and (max-width: 400px) {
+    .mb-3 {
+        width: 95vw;
+    }
+}
+
+@media only-screen and (min-width: 401px) {
+    .mb-3 {
+        width: 10px;
     }
 }
