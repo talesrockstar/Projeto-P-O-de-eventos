@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(135deg, #1F1D2B);
@@ -223,8 +224,76 @@ button:hover {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+/* Estilos para a página de resposta */
+.resposta-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 40rem;
+    transition: transform 0.5s ease;
+}
+
+.resposta-container:hover {
+    transform: scale(1.03);
+}
+
+.resposta-item {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.resposta-item h3 {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.resposta-valor {
+    width: 100%;
+    padding: 12px;
+    font-size: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nivel-resposta {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.nivel-resposta .fa-star {
+    font-size: 24px;
+    color: #ccc;
+}
+
+.nivel-resposta .fa-star.selecionada {
+    color: #ffc107;
+}
+
+#voltar{
+    color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(255, 255, 255, 0.1);
+    font-weight: bold;
+}
 
 @media only screen and (max-width: 1440px) {
+    html {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .resposta-container{
+        padding: 20px;
+        width: 30rem;
+    }
+
     form {
         padding: 20px;
         width: 30rem;
@@ -271,7 +340,7 @@ button:hover {
     }
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 1279px) {
     .header {
         align-items: center;
         justify-content: space-between;
@@ -321,9 +390,14 @@ button:hover {
     }
 }
 
-@media only screen and (max-width: 460px) {
+@media only screen and (max-width: 743px) {
     .header {
         margin: 30px 30px;
+    }
+
+    .resposta-container{
+        padding: 20px;
+        width: 100%;
     }
 
     form {
