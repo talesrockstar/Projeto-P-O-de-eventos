@@ -42,7 +42,7 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 19.9rem;
+    width: fit-content;
     height: 3.2rem;
     gap: 1.5rem;
 }
@@ -71,9 +71,8 @@ header {
 }
 
 .notification_dot {
-    position: absolute;
-    top: 4rem;
-    right: 2rem;
+    margin-left: -2rem;
+    margin-top: -1rem;
     width: 1rem;
     height: 1rem;
     background-color: #ff0000;
@@ -93,8 +92,8 @@ main h1 {
 
 .tela_eventos {
     width: 100%;
-    margin-left: 3rem;
-    margin-right: 3rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 .texto_tela {
@@ -148,7 +147,9 @@ main h1 {
     margin-top: 3rem;
     display: flex;
     gap: 3rem;
+    overflow-y: hidden;
     overflow-x: auto;
+    align-items: center;
 }
 
 .carrossel2 {
@@ -172,7 +173,6 @@ main h1 {
     border-radius: 2rem;
     background-color: #252836;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
     color: white;
 }
 
@@ -218,7 +218,7 @@ span {
 
     .cabeca {
         width: 100%;
-        padding-right: 0;
+        padding-right: 4;
     }
 
     .perfil {
@@ -226,9 +226,7 @@ span {
         height: 3rem;
     }
 
-    .notification {
-        display: none;
-    }
+    
 
     .tela_eventos {
         max-width: 100%;
@@ -244,5 +242,131 @@ span {
         gap: 1rem;
     }
 
-    
+
 }
+
+@media only screen and (min-width: 320px) and (max-width: 743px) {
+    body {
+        width: 100%;
+    }
+
+    header {
+        width: 100%;
+        align-items: center;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .cabeca {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        row-wrap: wrap;
+        padding-right: 2rem;
+        padding-left: 1rem;
+    }
+
+    .Plannea h2 {
+        font-size: 1.2rem;
+    }
+
+    #fotodeperfil {
+        width: 2.3rem;
+        height: 2.3rem;
+    }
+
+
+    .perfil {
+        width: fit-content;
+        height: 2.7rem;
+        gap: 0.5rem;
+    }
+
+    .informacoes_perfil {
+        width: fit-content;
+        height: 2.7rem;
+        gap: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    .notification_dot {
+
+    }
+
+    .filtros {
+        width: auto;
+        height: auto;
+        font-size: 1.2rem;
+        gap: 1rem;
+        margin: 0;
+        padding-top: 1rem;
+
+    }
+
+    .tela_eventos {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .texto_tela {
+        align-items: center
+    }
+
+    .texto_tela h1 {
+        width: auto;
+        font-size: 3rem;
+        color: white;
+        align-items: center;
+    }
+
+    .texto_tela h2 {
+        font-size: 1.8rem;
+        color: white;
+        width: auto;
+        font-size: 2.4rem;
+        color: white;
+        align-items: center;
+    }
+
+    
+
+    .futuros h1 {
+        
+        font-size: 2.4rem;
+        color: white;
+        width:fit-content
+    }
+
+    .andamento h1 {
+        font-size: 2.4rem;
+        color: white;
+        width: fit-content;
+    }
+    .realizados h1 {
+        font-size: 2.4rem;
+        color: white;
+        width: fit-content;
+    }
+
+     .carrossel1, 
+    .carrossel2,
+    .carrossel3 {
+        gap: 1rem;
+        width: 32rem
+        align-items: center;
+    }
+
+    .card {
+        min-width: 20.7rem;
+        max-width: 20.7rem;
+    }
+
+
+}
+
+   
