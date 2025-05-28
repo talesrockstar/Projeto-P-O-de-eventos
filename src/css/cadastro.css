@@ -134,6 +134,42 @@ button.btn:hover {
     width: 350px;
 }
 
+.profile-section {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    gap: 1rem;
+}
+
+.avatar-container {
+    margin-right: 10px;
+}
+
+.avatar img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+}
+
+.change-photo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.change-photo span {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.change-photo span img {
+   width: 2.5rem;
+    height: 2.5rem;
+}
+
+.photo-icon {
+    margin-right: 5px;
+}
+
 @media (max-width: 743px) {
     .container {
         width: 100%;
