@@ -205,7 +205,20 @@
     setInterval(atualizarTempo, 1000);
   </script>
 
-
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.createElement('div');
+  menuToggle.className = 'menu-toggle';
+  menuToggle.innerHTML = '<span></span><span></span><span></span>';
+  document.body.appendChild(menuToggle);
+  
+  const sidebar = document.querySelector('.sidebar');
+  
+  menuToggle.addEventListener('click', function() {
+    sidebar.classList.toggle('active');
+  });
+});
+</script>
 </body>
 
 </html>
