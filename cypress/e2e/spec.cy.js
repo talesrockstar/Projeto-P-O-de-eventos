@@ -3,6 +3,7 @@ describe('Tela de feedback', () => {
     cy.visit('feedback.html')
   })
 
+  
   it('Deve carregar os elementos da tela corretamente', () => {
 
     cy.get('span[class="logo"]').should('have.text', 'Plannea')
@@ -28,19 +29,29 @@ describe('Tela de feedback', () => {
     cy.get('.descricao_do_evento').should('contain.text', 'Gregorio Duvivier tem na língua portuguesa não somente uma pátria mas uma obsessão. Ou, como dizem os\n            jovens, um hiperfoco.\n            Afinal a palavra é uma fonte inesgotável de humor, desde os primórdios. No Princípio era o Verbo, disse\n            Deus. E logo em seguida vieram os erros de concordância.')
   })
 
-  it('Deve preencher o formulário, enviar e ser redirecionado a página de feedback respondido', () => {
+
+  it('Deve preencher o formulário, enviar, ser redirecionado a página de feedback respondido e verificar as respostas', () => {
     cy.get('#nome').type('João Silva').should('have.value', 'João Silva')
 
     cy.get('#email').type('Joaosilva123@gmail.com').should('have.value', 'Joaosilva123@gmail.com')
 
-    cy.get('.nivel .fa-star[data-index="4"]').click()
-    cy.get('.nivel .fa-star[data-index="4"]').should('have.class', 'selecionada')
+    cy.get('.nivel .fa-star[data-index="3"]').click()
+    cy.get('.nivel .fa-star[data-index="3"]').should('have.class', 'selecionada')
 
     cy.get('#comentario').type('Ótimo evento, aprendi muito!').should('have.value', 'Ótimo evento, aprendi muito!')
 
     cy.get('#enviar').click()
     cy.url().should('include', 'feedback2.html')
+
+    cy.get('#resposta-nome').should('have.text', 'João Silva')
+    cy.get('#resposta-email').should('have.text', 'Joaosilva123@gmail.com')
+    cy.get('#resposta-nivel .fa-star.selecionada').should('have.length', 3)
+    cy.get('#resposta-comentario').should('have.text', 'Ótimo evento, aprendi muito!')
+
+    cy.get('#voltar').click()
+    cy.url().should('include', 'feedback.html')
   })
+
 
   it('Deve preencher o formulário, cancelar e retirar os elementos da tela', () => {
     cy.get('#nome').type('João Silva')
