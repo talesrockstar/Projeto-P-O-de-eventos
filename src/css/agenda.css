@@ -1,5 +1,7 @@
 @import url(global.css);
 
+
+
 body {
     background-image: url('../img/background.svg');
     background-repeat: no-repeat;
@@ -213,7 +215,7 @@ main h1 {
 }
 
 .card-body {
-    padding-top: 2.7rem;
+    padding-top: 2rem;
     display: flex;
     flex-direction: column;
 
@@ -226,13 +228,13 @@ main h1 {
 }
 
 #Nome_evento {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: white;
     line-height: 2rem;
 }
 
 #Data_evento {
-    margin-top: 3rem;
+    margin-top: -1rem;
     font-size: 1.4rem;
     color: #808191;
 }
@@ -272,6 +274,12 @@ span {
         height: 5rem;
         margin-top: 3rem;
         gap: 1rem;
+    }
+
+    .carrossel1,
+    .carrossel2,        
+    .carrossel3 {
+        height: max-content;
     }
 
 
@@ -390,8 +398,9 @@ span {
     .carrossel2,
     .carrossel3 {
         gap: 1rem;
-        width: 32rem;
+        width: auto;
         align-items: center;
+        height: auto;
     }
 
     .card {

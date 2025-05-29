@@ -1,23 +1,140 @@
 const inputstatus = document.getElementById('StatusSelect');
-const inputlocal = document.getElementById('StatusLocal');
-const tipo = document.getElementById('tipo');
+const inputlocal = document.querySelector('#StatusLocal');
+const inputtipo = document.getElementById('Tipo');
+const cards = document.querySelectorAll('.card');
+const futuro = document.querySelector('.futuros');
+const carrossel = document.querySelector('.carrossel1');
+const andamento = document.querySelector('.andamento');
+const realizado = document.querySelector('.realizados');
+
+// carrossel.innerHTML += `<div class="card">
+//                             <img src="src/img/patati.svg" alt="imagem patati patata evento">
+//                             <div class="card-body">
+//                                 <p id="Local">Natal, RN</p>
+//                                 <p id="Nome_evento">Patati circo show</p>
+//                                 <p id="Tipo_evento">Infantil</p>
+//                                 <p id="Data_evento">21 de maio - 25 de maio</p>
+//                             </div>
+//                         </div>`
 
 
-inputlocal.addEventListener('change', function() {
-    filtrarlocal(inputlocal);
+inputlocal.addEventListener('change', function () {
+    let valorlocal = inputlocal.value;
+    resetFilter();
+    filtrarlocal(valorlocal);
 });
 
-const cards = document.querySelectorAll('.card');
-
-function filtrarlocal(inputlocal){
-    cards.forEach((card) => {
-    if (card.innerText.includes(inputlocal.value)) {
-        card.style.display = 'none';
+inputstatus.addEventListener('change', function () {
+    let valorstatus = inputstatus.value;
+    console.log(valorstatus);
+    if (valorstatus == 1) {
+        resetFiltrarStatus();
+        andamento.style.display = 'none';
+        realizado.style.display = 'none';
     }
+    if (valorstatus == 2) {
+        resetFiltrarStatus();
+        futuro.style.display = 'none';
+        realizado.style.display = 'none';
+    }
+    if (valorstatus == 3) {
+        resetFiltrarStatus();
+        futuro.style.display = 'none';
+        andamento.style.display = 'none';
+    }
+    if (valorstatus == 0) {
+        resetFiltrarStatus()
+    }
+});
+
+inputtipo.addEventListener('change', function () {
+    let valortipo = inputtipo.value;
+    console.log(valortipo);
+    resetFilter();
+    filtrartipo(valortipo);
+});
+
+function filtrarlocal(x) {
+    
+    if (x == 1) {
+        cards.forEach((card) => {
+            if (!card.innerText.includes('São Paulo, SP')) {
+                card.style.display = 'none';
+            }
+        })
+    }
+    if (x == 2) {
+        cards.forEach((card) => {
+            if (!card.innerText.includes('Natal, RN')) {
+                card.style.display = 'none';
+            }
+        })
+    }
+    if (x == 3) {
+        cards.forEach((card) => {
+            if (!card.innerText.includes('Salvador, BA')) {
+                card.style.display = 'none';
+            }
+        })
+    }
+    
+};
+
+function filtrartipo(x) {
+    if (x == '1') {
+        cards.forEach((card) => {
+            if (!card.innerText.includes('Show')) {
+                card.style.display = 'none';
+            }
+        })
+    }
+    if (x == '2') {
+        cards.forEach((card) => {
+            if (!card.innerText.includes('Peça')) {
+                card.style.display = 'none';
+            }
+        })
+    }
+    if (x == '3') {
+        cards.forEach((card) => {
+            if (!card.innerText.includes('Musical')) {
+                card.style.display = 'none';
+            }
+        })
+    }
+    if (x == '4') {
+        cards.forEach((card) => {
+            if (!card.innerText.includes('Stand-UP')) {
+                card.style.display = 'none';
+            }
+        })
+    }
+    if (x == 0) {
+        resetFilter();
+    }
+}
+
+function resetFilter() {
+    cards.forEach((card) => {
+        card.style.display = 'block';
     });
 }
 
+function resetFiltrarStatus() {
+    futuro.style.display = 'block';
+    andamento.style.display = 'block';
+    realizado.style.display = 'block';
+}
 
+// futuro.innerHTML = `<div class="card">
+//                             <img src="src/img/patati.svg" alt="imagem patati patata evento">
+//                             <div class="card-body">
+//                                 <p id="Local">Natal, RN</p>
+//                                 <p id="Nome_evento">Patati circo show</p>
+//                                 <p id="Tipo_evento">Infantil</p>
+//                                 <p id="Data_evento">21 de maio - 25 de maio</p>
+//                             </div>
+//                         </div>`
 
 
 
