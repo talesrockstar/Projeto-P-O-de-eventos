@@ -304,42 +304,6 @@ button:hover {
     }
 }
 
-@media only screen and (max-width: 1024px) {
-    .feedback {
-        margin: 0px 20px;
-    }
-
-    form {
-        padding: 20px;
-        width: 24rem;
-    }
-
-    body {
-        width: 89%;
-    }
-
-    .infos {
-        align-items: center;
-    }
-
-    .infos img {
-        width: 22rem;
-        height: 14rem;
-    }
-
-    .texto {
-        margin: 10px 60px;
-    }
-
-    .texto h1 {
-        font-size: 24px;
-    }
-
-    .texto p {
-        font-size: 14px;
-    }
-}
-
 @media only screen and (max-width: 1279px) {
     .header {
         align-items: center;
@@ -389,6 +353,44 @@ button:hover {
         text-align: center;
     }
 }
+
+@media only screen and (max-width: 1024px) {
+    .feedback {
+        margin: 0px 20px;
+    }
+
+    form {
+        padding: 20px;
+        width: 24rem;
+    }
+
+    body {
+        width: 89%;
+    }
+
+    .infos {
+        align-items: center;
+    }
+
+    .infos img {
+        width: 22rem;
+        height: 14rem;
+    }
+
+    .texto {
+        margin: 10px 60px;
+    }
+
+    .texto h1 {
+        font-size: 24px;
+    }
+
+    .texto p {
+        font-size: 14px;
+    }
+}
+
+
 
 @media only screen and (max-width: 743px) {
     .header {
