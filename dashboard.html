@@ -21,69 +21,58 @@
   </script>
 
   <header>
-    <div class="cabeca">
-
-      <div class="barra_pesquisa">
-        <form action="/search" method="GET">
-          <input type="text" name="query" id="barra_pesquisa" placeholder="Pesquisar..." class="input_pesquisa">
-          <button type="submit" class="botao_pesquisa"><img src="src/img/botao_pesquisa.png"
-              alt="botao_pesquisa"></button>
-        </form>
-      </div>
-
-      <div class="user"><img src="src/img/User_thomas.jpg" alt="Foto_Usuario"> Thomas
-        <div class="seta"></div>
-        <div class="sininho"><img src="src/img/image.png" alt=""></div>
-
-      </div>
-
+    <!-- Cabeçalho de pesquisa -->
+<header class="container-pesquisa">
+  <div class="container-header">
+    <div class="pesquisa">
+      <input type="search" class="controle-formulario" placeholder="Pesquisar eventos, locais, datas..." aria-label="Pesquisar">
     </div>
+    <div class="container-usuario">
+      <img src="src/img/Ludmila.png" alt="Foto de perfil" class="avatar-usuario">
+      <span class="nome-usuario">Ludmila Silva</span>
+    </div>
+  </div>
+</header>
   </header>
 
-  <aside class="sidebar">
-    <a href="/" class="sidebar__brand">
-      <use xlink:href="#bootstrap"></use>
-      </svg>
-      <span class="sidebar__title">Plannea</span>
-    </a>
+  <!-- Barra lateral -->
+<aside class="barra-lateral" aria-label="Menu de navegação principal">
+  <a href="index-logado.html" class="barra-lateral__marca">
+    <span class="barra-lateral__titulo">Plannea</span>
+  </a>
+  <nav class="barra-lateral__nav">
+    <ul class="barra-lateral__lista">
+      <li class="barra-lateral__item">
+        <a href="#" class="barra-lateral__link barra-lateral__link--ativo" aria-current="page">
+          <img class="barra-lateral__icone" src="src/img/Home.svg" alt="Ícone Início">
+          Início
+        </a>
+      </li>
+      <li class="barra-lateral__item">
+        <a href="#" class="barra-lateral__link">
+          <img class="barra-lateral__icone" src="src/img/Criar_Evento.svg" alt="Ícone Criar eventos">
+          Criar eventos
+        </a>
+      </li>
+      <li class="barra-lateral__item">
+        <a href="#" class="barra-lateral__link">
+          <img class="barra-lateral__icone" src="src/img/Detalhes de Evento.svg" alt="Ícone Detalhes de Evento">
+          Detalhes de Evento
+        </a>
+      </li>
+      <li class="barra-lateral__item">
+        <a href="#" class="barra-lateral__link">
+          <img class="barra-lateral__icone" src="src/img/Agenda.svg" alt="Ícone Agenda">
+          Agenda
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>
 
-    <nav class="sidebar__nav">
-      <ul class="sidebar__list">
-        <li class="sidebar__item">
-          <a href="#" class="sidebar_link sidebar_link--active" aria-current="page">
-            <img class="sidebar__icon" src="src/img/Home.svg" alt="">
-            <use xlink:href="#home"></use>
-            </svg>
-            Início
-          </a>
-        </li>
-        <li class="sidebar__item">
-          <a href="#" class="sidebar__link">
-            <use xlink:href="#table"></use>
-            <img class="sidebar__icon" src="src/img/Criar_Evento.svg" alt="">
-            </svg>
-            Criar eventos
-          </a>
-        </li>
-        <li class="sidebar__item">
-          <a href="#" class="sidebar__link">
-            <use xlink:href="#grid"></use>
-            <img class="sidebar__icon" src="src/img/Detalhes de Evento.svg" alt="">
-            </svg>
-            Detalhes de Evento
-          </a>
-        </li>
-        <li class="sidebar__item">
-          <a href="#" class="sidebar__link">
-            <use xlink:href="#people-circle"></use>
-            <img class="sidebar__icon" src="src/img/Agenda.svg" alt="">
-            </svg>
-            Agenda
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </aside>
+<!-- Overlay para menu mobile (este pode ficar fora do aside, talvez antes do fechamento do body) -->
+<!-- <div class="barra-lateral-overlay" aria-hidden="true"></div> -->
+<!-- O JavaScript já cria o overlay, então este elemento HTML pode não ser necessário -->
 
   <main>
 
@@ -98,7 +87,7 @@
           <button>Aniversario 07/10</button>
           <button>Summer festival 25/01</button>
           <button>Aniversario felipe 16/01</button>
-          <span class="2024">2024...</span>
+          
           <button>Festa Heitor 17/10</button>
 
         </ul>
@@ -207,18 +196,34 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Remove any existing menu-toggle first
+  const existingToggle = document.querySelector('.menu-toggle');
+  if (existingToggle) {
+    existingToggle.remove();
+  }
+
+  // Create a new menu-toggle button
   const menuToggle = document.createElement('div');
   menuToggle.className = 'menu-toggle';
   menuToggle.innerHTML = '<span></span><span></span><span></span>';
-  document.body.appendChild(menuToggle);
-  
+
+  // Insert the new button at the beginning of the header
+  const header = document.querySelector('header');
+  if (header) {
+    header.insertBefore(menuToggle, header.firstChild);
+  }
+
   const sidebar = document.querySelector('.sidebar');
-  
-  menuToggle.addEventListener('click', function() {
-    sidebar.classList.toggle('active');
-  });
+
+  // Add click event listener to the new button
+  if (menuToggle && sidebar) {
+    menuToggle.addEventListener('click', function() {
+      sidebar.classList.toggle('active');
+    });
+  }
 });
 </script>
+<script src="/src/js/java.js"></script>
 </body>
 
 </html>
