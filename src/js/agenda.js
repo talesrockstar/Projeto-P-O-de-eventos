@@ -1,6 +1,26 @@
-let carrossel = document.querySelector('.carrossel1');
+let carrossel1 = document.querySelector('.carrossel1');
 
-carrossel.innerHTML += `<div class="card">
+carrossel1.innerHTML += `<div class="card">
+                            <img src="src/img/patati.svg" alt="imagem patati patata evento">
+                            <div class="card-body">
+                                <p id="Local">Natal, RN</p>
+                                <p id="Nome_evento">Patati circo show</p>
+                                <p id="Tipo_evento">Infantil</p>
+                                <p id="Data_evento">21 de maio - 25 de maio</p>
+                            </div>
+                        </div>`
+
+carrossel1.innerHTML += `<div class="card">
+                            <img src="src/img/patati.svg" alt="imagem patati patata evento">
+                            <div class="card-body">
+                                <p id="Local">Natal, RN</p>
+                                <p id="Nome_evento">Patati circo show</p>
+                                <p id="Tipo_evento">Infantil</p>
+                                <p id="Data_evento">21 de maio - 25 de maio</p>
+                            </div>
+                        </div>`
+                        
+carrossel1.innerHTML += `<div class="card">
                             <img src="src/img/patati.svg" alt="imagem patati patata evento">
                             <div class="card-body">
                                 <p id="Local">Natal, RN</p>
@@ -82,30 +102,37 @@ function filtrarlocal(x) {
 };
 
 function filtrartipo(x) {
-    if (x == '1') {
+    if (x == 1) {
         cards.forEach((card) => {
             if (!card.innerText.includes('Show')) {
                 card.style.display = 'none';
             }
         })
     }
-    if (x == '2') {
+    if (x == 2) {
         cards.forEach((card) => {
             if (!card.innerText.includes('Peça')) {
                 card.style.display = 'none';
             }
         })
     }
-    if (x == '3') {
+    if (x == 3) {
         cards.forEach((card) => {
             if (!card.innerText.includes('Musical')) {
                 card.style.display = 'none';
             }
         })
     }
-    if (x == '4') {
+    if (x == 4) {
         cards.forEach((card) => {
             if (!card.innerText.includes('Stand-UP')) {
+                card.style.display = 'none';
+            }
+        })
+    }
+    if (x == 5) {
+        cards.forEach((card) => {
+            if (!card.innerText.includes('Infantil')) {
                 card.style.display = 'none';
             }
         })
