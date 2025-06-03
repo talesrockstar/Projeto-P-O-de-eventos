@@ -4,7 +4,7 @@ describe('Tela de feedback', () => {
   })
 
   
-  it('Deve carregar os elementos da tela corretamente', () => {
+  it('Carregar os elementos da tela corretamente', () => {
 
     cy.get('span[class="logo"]').should('have.text', 'Plannea')
 
@@ -30,7 +30,7 @@ describe('Tela de feedback', () => {
   })
 
 
-  it('Deve preencher o formulário, enviar, ser redirecionado a página de feedback respondido e verificar as respostas', () => {
+  it('Preencher o formulário, enviar e verificar respostas', () => {
     cy.get('#nome').type('João Silva').should('have.value', 'João Silva')
 
     cy.get('#email').type('Joaosilva123@gmail.com').should('have.value', 'Joaosilva123@gmail.com')
@@ -53,7 +53,7 @@ describe('Tela de feedback', () => {
   })
 
 
-  it('Deve preencher o formulário, cancelar e retirar os elementos da tela', () => {
+  it('Preencher o formulário e cancelar', () => {
     cy.get('#nome').type('João Silva')
     cy.get('#email').type('Joaosilva123@gmail.com')
 
