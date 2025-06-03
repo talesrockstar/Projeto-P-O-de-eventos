@@ -357,6 +357,7 @@ main { /* Ou .conteudo-principal */
   font-weight: normal;
 }
 
+
 .quantidade_FP,
 .quantidade_FO,
 .quantidade_C,
@@ -367,6 +368,12 @@ main { /* Ou .conteudo-principal */
   margin: 0;
   line-height: 1;
 }
+.tres-pontos {
+  display: flex;
+  margin-bottom: auto;
+  font-size: 12px;
+  
+}
 
 /* Histórico Section - Desktop */
 .historico {
@@ -375,6 +382,7 @@ main { /* Ou .conteudo-principal */
 }
 
 .historico ul {
+  flex-direction: column;
   list-style: none;
   padding: 0 0 15px 0;
   margin: 0;
@@ -385,6 +393,7 @@ main { /* Ou .conteudo-principal */
   overflow-x: initial;
   white-space: initial;
   scrollbar-width: initial;
+  
 }
 
 .historico ul::-webkit-scrollbar {
