@@ -1,7 +1,6 @@
 @import url(global.css);
 
 
-
 body {
     background-image: url('../img/background.svg');
     background-repeat: no-repeat;
@@ -244,6 +243,12 @@ span {
 }
 
 @media only screen and (min-width: 744px) and (max-width: 1280px) {
+    
+    body{
+        background-color: #1F1D2B;
+        background-image: none;
+    }
+    
     header {
         width: 100%;
         align-items: center;
@@ -288,6 +293,8 @@ span {
 @media only screen and (min-width: 320px) and (max-width: 743px) {
     body {
         width: 100%;
+        background-color: #1F1D2B;
+        background-image: none;
     }
 
     header {

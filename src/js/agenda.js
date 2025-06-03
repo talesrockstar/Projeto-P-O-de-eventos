@@ -1,21 +1,22 @@
+let carrossel = document.querySelector('.carrossel1');
+
+carrossel.innerHTML += `<div class="card">
+                            <img src="src/img/patati.svg" alt="imagem patati patata evento">
+                            <div class="card-body">
+                                <p id="Local">Natal, RN</p>
+                                <p id="Nome_evento">Patati circo show</p>
+                                <p id="Tipo_evento">Infantil</p>
+                                <p id="Data_evento">21 de maio - 25 de maio</p>
+                            </div>
+                        </div>`
+
 const inputstatus = document.getElementById('StatusSelect');
 const inputlocal = document.querySelector('#StatusLocal');
 const inputtipo = document.getElementById('Tipo');
 const cards = document.querySelectorAll('.card');
 const futuro = document.querySelector('.futuros');
-const carrossel = document.querySelector('.carrossel1');
 const andamento = document.querySelector('.andamento');
-const realizado = document.querySelector('.realizados');
-
-// carrossel.innerHTML += `<div class="card">
-//                             <img src="src/img/patati.svg" alt="imagem patati patata evento">
-//                             <div class="card-body">
-//                                 <p id="Local">Natal, RN</p>
-//                                 <p id="Nome_evento">Patati circo show</p>
-//                                 <p id="Tipo_evento">Infantil</p>
-//                                 <p id="Data_evento">21 de maio - 25 de maio</p>
-//                             </div>
-//                         </div>`
+const  realizado = document.querySelector('.realizados');                        
 
 
 inputlocal.addEventListener('change', function () {
@@ -126,7 +127,7 @@ function resetFiltrarStatus() {
     realizado.style.display = 'block';
 }
 
-// futuro.innerHTML = `<div class="card">
+// futuro.innerHTML += `<div class="card">
 //                             <img src="src/img/patati.svg" alt="imagem patati patata evento">
 //                             <div class="card-body">
 //                                 <p id="Local">Natal, RN</p>
