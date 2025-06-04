@@ -1,4 +1,8 @@
-// cypress/e2e/pagina_logada.cy.js
+// =======================================================
+// Testes automatizados da Página Inicial (Usuário Logado)
+// =======================================================
+// Este arquivo Cypress garante que os principais elementos e funcionalidades
+// da página inicial estejam presentes e corretos para um usuário autenticado.
 
 describe("Teste da Página Inicial - Usuário Logado - Plannea", () => {
   beforeEach(() => {
@@ -37,7 +41,4 @@ describe("Teste da Página Inicial - Usuário Logado - Plannea", () => {
     // Verifica se o carrossel de cards está visível
     cy.get("#carrosselCards").should("be.visible");
   });
-
-  // Pode adicionar mais testes específicos para a versão logada aqui, 
-  // como interações com elementos que só aparecem para usuários logados.
 });

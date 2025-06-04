@@ -1,5 +1,6 @@
 /* =====================================================
    RESET & BASE
+   Reset de estilos e variáveis globais para o projeto
 ===================================================== */
 * {
   margin: 0;
@@ -8,7 +9,7 @@
 }
 
 :root {
-  /* Cores */
+  /* Cores principais do tema */
   --cor-primaria: #FF7551;
   --cor-primaria-hover: #e05e3d;
   --cor-fundo: #1F1D2B;
@@ -17,11 +18,11 @@
   --cor-texto: #fff;
   --cor-texto-terciaria: #ccc;
 
-  /* Tamanhos */
+  /* Tamanhos e espaçamentos */
   --largura-barra-lateral: 250px;
   --borda-raio-padrao: 0.75rem;
 
-  /* Efeitos */
+  /* Efeitos visuais */
   --sombra-padrao: 0 4px 15px rgba(0,0,0,0.6);
   --sombra-card: 0 6px 20px rgba(0, 0, 0, 0.5);
   --sombra-hover: 0 12px 28px rgba(255, 117, 81, 0.6);
@@ -40,6 +41,7 @@ body {
 
 /* =====================================================
    UTILITÁRIOS E ACESSIBILIDADE
+   Estilos para acessibilidade e elementos utilitários
 ===================================================== */
 
 /* Esconde elementos visualmente, mantendo para leitores de tela */
@@ -56,7 +58,7 @@ body {
   border: 0;
 }
 
-/* Link de pular para o conteúdo principal */
+/* Link de pular para o conteúdo principal (acessibilidade) */
 .pular-link {
   position: absolute;
   top: -40px;
@@ -74,6 +76,7 @@ body {
 
 /* =====================================================
    BARRA LATERAL
+   Estilização da navegação lateral do sistema
 ===================================================== */
 .barra-lateral {
   position: fixed;
@@ -159,6 +162,7 @@ body {
 
 /* =====================================================
    MENU MOBILE
+   Estilos para o menu hamburguer e overlay mobile
 ===================================================== */
 .botao-menu {
   display: none;
@@ -191,6 +195,7 @@ body {
 
 /* =====================================================
    CABEÇALHO E PESQUISA
+   Estilos para o header e campo de busca
 ===================================================== */
 .container-pesquisa {
   margin-left: var(--largura-barra-lateral);
@@ -240,6 +245,7 @@ body {
 
 /* =====================================================
    AUTENTICAÇÃO
+   Botões de cadastro e login
 ===================================================== */
 .container-autenticacao {
   display: flex;
@@ -281,6 +287,7 @@ body {
 
 /* =====================================================
    USUÁRIO LOGADO
+   Estilos para avatar e nome do usuário autenticado
 ===================================================== */
 .container-usuario {
   display: flex;
@@ -293,7 +300,6 @@ body {
   height: 36px;
   border-radius: 50%;
   object-fit: cover;
-
 }
 
 .nome-usuario {
@@ -304,6 +310,7 @@ body {
 
 /* =====================================================
    CONTEÚDO PRINCIPAL
+   Área central da aplicação
 ===================================================== */
 .conteudo-principal {
   margin-left: var(--largura-barra-lateral);
@@ -323,6 +330,7 @@ body {
 
 /* =====================================================
    CARROSSEL PRINCIPAL (IMAGEM GRANDE)
+   Estilos para o carrossel de imagens em destaque
 ===================================================== */
 .carrossel,
 .carousel {
@@ -340,7 +348,6 @@ body {
   border-radius: var(--borda-raio-padrao);
   box-shadow: var(--sombra-padrao);
 }
-
 
 /* Foco para controles do carrossel */
 .carrossel:focus-visible,
@@ -367,6 +374,7 @@ body {
 
 /* =====================================================
    CARROSSEL DE CARDS (SEÇÃO DESTAQUES, ETC)
+   Estilos para o carrossel customizado de cards
 ===================================================== */
 .album {
   background-color: var(--cor-fundo);
@@ -417,6 +425,7 @@ body {
 
 /* =====================================================
    CARD PERSONALIZADO (USADO EM LISTAS/CARROSSEL)
+   Estilos para os cards de eventos
 ===================================================== */
 .card-personalizado {
   min-width: 250px;
@@ -499,7 +508,7 @@ body {
 
 /* =====================================================
    RESPONSIVIDADE: TABLETS E DISPOSITIVOS MÉDIOS
-   (largura máxima de 992px)
+   Ajustes para telas médias (até 992px)
 ===================================================== */
 @media (max-width: 992px) {
   :root {
@@ -534,7 +543,7 @@ body {
 
 /* =====================================================
    RESPONSIVIDADE: TABLETS PEQUENOS / MÓVEIS GRANDES
-   (largura máxima de 768px)
+   Ajustes para telas até 768px
 ===================================================== */
 @media (max-width: 768px) {
   :root {
@@ -613,7 +622,7 @@ body {
 
 /* =====================================================
    RESPONSIVIDADE: DISPOSITIVOS MÓVEIS COMUNS
-   (largura máxima de 576px)
+   Ajustes para telas até 576px
 ===================================================== */
 @media (max-width: 576px) {
   .controle-formulario {
@@ -671,7 +680,7 @@ body {
 
 /* =====================================================
    RESPONSIVIDADE: DISPOSITIVOS MUITO PEQUENOS
-   (largura máxima de 375px)
+   Ajustes para telas até 375px
 ===================================================== */
 @media (max-width: 375px) {
   .card-personalizado {

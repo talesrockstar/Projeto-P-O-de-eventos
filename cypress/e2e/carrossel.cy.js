@@ -1,4 +1,8 @@
-// cypress/e2e/carrossel.cy.js
+// ===============================================
+// Testes automatizados dos Carrosséis do Plannea
+// ===============================================
+// Este arquivo Cypress cobre testes do carrossel de imagens (Bootstrap)
+// e do carrossel de cards customizado na página inicial do Plannea.
 
 describe("Testes dos Carrosséis (Imagens e Cards) - Plannea", () => {
   beforeEach(() => {
@@ -6,10 +10,14 @@ describe("Testes dos Carrosséis (Imagens e Cards) - Plannea", () => {
     cy.visit("./index-sem-login.html");
   });
 
+  // ==========================================
+  // Testes do Carrossel de Imagens (Bootstrap)
+  // ==========================================
   context("Carrossel de Imagens (Bootstrap)", () => {
     const carrosselImagens = "#carouselExample";
 
     it("Deve exibir o carrossel de imagens e seus controles", () => {
+      // Verifica se o carrossel e seus elementos principais estão visíveis
       cy.get(carrosselImagens).should("be.visible");
       cy.get(`${carrosselImagens} .carousel-inner`).should("be.visible");
       cy.get(`${carrosselImagens} .carousel-item`).should("have.length.at.least", 1);
@@ -20,12 +28,12 @@ describe("Testes dos Carrosséis (Imagens e Cards) - Plannea", () => {
 
     it("Deve navegar para o próximo slide ao clicar no botão 'Próximo'", () => {
       // Verifica o slide inicial ativo
-      cy.get(`${carrosselImagens} .carousel-item.active`).find("img").should("have.attr", "alt", "Mauricio Manieri - Tour Classics 2025");
+      cy.get(`${carrosselImagens} .carousel-item.active`).find("img").should("have.attr", "alt", "Mauricio Manieri - Tour Classics 2025"); 
 
       // Clica no botão próximo
       cy.get(`${carrosselImagens} .carousel-control-next`).click();
 
-      // Aguarda a transição (pode precisar ajustar o tempo)
+      // Aguarda a transição do carrossel
       cy.wait(1000); 
 
       // Verifica se o segundo slide está ativo
@@ -56,11 +64,15 @@ describe("Testes dos Carrosséis (Imagens e Cards) - Plannea", () => {
     });
   });
 
+  // ========================================
+  // Testes do Carrossel de Cards Customizado
+  // ========================================
   context("Carrossel de Cards (Customizado)", () => {
-    const carrosselCards = "#carrosselCards";
-    const wrapper = ".secao-carrossel-cards .carrossel-wrapper";
+    const carrosselCards = "#carrosselCards"; // ID do carrossel
+    const wrapper = ".secao-carrossel-cards .carrossel-wrapper"; 
 
     it("Deve exibir o carrossel de cards e seus controles", () => {
+      // Verifica se o carrossel de cards e os botões de navegação estão visíveis
       cy.get(carrosselCards).should("be.visible");
       cy.get(`${carrosselCards} .card-personalizado`).should("have.length.gt", 0);
       cy.get(`${wrapper} .botao-anterior`).should("be.visible");
@@ -68,13 +80,13 @@ describe("Testes dos Carrosséis (Imagens e Cards) - Plannea", () => {
     });
 
     it("Deve rolar para a direita ao clicar no botão 'Próximo'", () => {
-      // Captura a posição inicial de rolagem
+      // Captura a posição inicial de rolagem do carrossel
       cy.get(carrosselCards).scrollIntoView().invoke("scrollLeft").then((scrollInicial) => {
-        // Clica no botão próximo
+        // Clica no botão próximo para rolar o carrossel
         cy.get(`${wrapper} .botao-proximo`).click();
         // Espera o término da animação de rolagem
         cy.wait(500);
-        // Verifica se a posição de rolagem é maior que a inicial
+        // Verifica se a posição de rolagem é maior que a inicial (rolou para a direita)
         cy.get(carrosselCards).invoke("scrollLeft").should("be.gt", scrollInicial);
       });
     });
@@ -86,15 +98,12 @@ describe("Testes dos Carrosséis (Imagens e Cards) - Plannea", () => {
 
       // Obtém a posição de rolagem após rolar para a direita
       cy.get(carrosselCards).invoke("scrollLeft").then((scrollDireita) => {
-        // Clica no botão anterior
+        // Clica no botão anterior para rolar de volta
         cy.get(`${wrapper} .botao-anterior`).click();
         cy.wait(500);
-        // Verifica se a posição de rolagem diminuiu (ou voltou a zero)
+        // Verifica se a posição de rolagem diminuiu (rolou para a esquerda)
         cy.get(carrosselCards).invoke("scrollLeft").should("be.lt", scrollDireita);
       });
     });
-
-    // Testes de swipe/touch são mais complexos e podem exigir plugins específicos
-    // ou simulações mais elaboradas. Focaremos nos cliques por enquanto.
   });
 });

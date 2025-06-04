@@ -1,4 +1,8 @@
-// cypress/e2e/pagina_inicial.cy.js
+// =======================================================
+// Testes automatizados da Página Inicial do Plannea
+// =======================================================
+// Este arquivo Cypress garante que os principais elementos e funcionalidades
+// da página inicial estejam presentes e funcionando corretamente.
 
 describe("Teste da Página Inicial - Plannea", () => {
   it("Deve carregar a página inicial corretamente e exibir elementos chave", () => {
@@ -33,6 +37,7 @@ describe("Teste da Página Inicial - Plannea", () => {
   });
 
   it("Deve permitir a pesquisa de eventos", () => {
+    // Visita novamente a página inicial
     cy.visit("./index-sem-login.html");
 
     // Digita no campo de pesquisa
