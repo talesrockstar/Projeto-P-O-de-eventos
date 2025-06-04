@@ -1,5 +1,7 @@
 body {
-    background-image: url("../img/img_fundo.png");
+    background-image: url("../img/imgfundo2.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;

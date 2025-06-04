@@ -1,7 +1,7 @@
 const botaoAlterarFoto = document.querySelector('.change-photo')
 const imagemAvatar = document.querySelector('.avatar img')
 
-// Evento para o botão de alterar foto
+
     botaoAlterarFoto.addEventListener('click', function () {
         // Cria um input de arquivo invisível
         const inputArquivo = document.createElement('input')
@@ -9,7 +9,7 @@ const imagemAvatar = document.querySelector('.avatar img')
         inputArquivo.accept = 'image/*'
         inputArquivo.style.display = 'none'
 
-        // Adiciona o input ao DOM
+        
         document.body.appendChild(inputArquivo);
 
         // Simula um clique no input de arquivo

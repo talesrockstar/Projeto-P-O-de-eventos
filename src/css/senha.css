@@ -1,5 +1,7 @@
 body {
-    background-image: url("../img/img_fundo.png");
+    background-image: url("../img/imgfundo2.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
     font-family: Poppins, 'Inter', sans-serif;
 }
@@ -66,7 +68,8 @@ main {
 }
 
 .input-svg input {
-    padding-left: 40px; /* Espaço para o ícone */
+    padding-left: 40px;
+    /* Espaço para o ícone */
     height: 32px;
     font-size: 16px;
 }
