@@ -1,9 +1,9 @@
 let carrossel1 = document.querySelector('.carrossel1');
 
 carrossel1.innerHTML += `<div class="card">
-                            <img src="src/img/patati.svg" alt="imagem patati patata evento">
+                            <img src="src/img/patati.svg" class="card-img-top" alt="imagem patati patata evento">
                             <div class="card-body">
-                                <p id="Local">Natal, RN</p>
+                                <p id="Local">Natal, Rj</p>
                                 <p id="Nome_evento">Patati circo show</p>
                                 <p id="Tipo_evento">Infantil</p>
                                 <p id="Data_evento">21 de maio - 25 de maio</p>
@@ -11,7 +11,7 @@ carrossel1.innerHTML += `<div class="card">
                         </div>`
 
 carrossel1.innerHTML += `<div class="card">
-                            <img src="src/img/patati.svg" alt="imagem patati patata evento">
+                            <img src="src/img/patati.svg" class="card-img-top" alt="imagem patati patata evento">
                             <div class="card-body">
                                 <p id="Local">Natal, RN</p>
                                 <p id="Nome_evento">Patati circo show</p>
@@ -21,7 +21,7 @@ carrossel1.innerHTML += `<div class="card">
                         </div>`
                         
 carrossel1.innerHTML += `<div class="card">
-                            <img src="src/img/patati.svg" alt="imagem patati patata evento">
+                            <img src="src/img/patati.svg" class="card-img-top" alt="imagem patati patata evento">
                             <div class="card-body">
                                 <p id="Local">Natal, RN</p>
                                 <p id="Nome_evento">Patati circo show</p>
@@ -70,8 +70,8 @@ inputstatus.addEventListener('change', function () {
 
 inputtipo.addEventListener('change', function () {
     let valortipo = inputtipo.value;
-    console.log(valortipo);
     resetFilter();
+    console.log(valortipo);
     filtrartipo(valortipo);
 });
 
@@ -97,6 +97,10 @@ function filtrarlocal(x) {
                 card.style.display = 'none';
             }
         })
+    }
+
+    if (x == 0) {
+        resetFiltrer();
     }
     
 };
