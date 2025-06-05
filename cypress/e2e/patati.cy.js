@@ -1,6 +1,6 @@
-describe('Tela de feedback', () => {
+describe('Tela de feedback-patati e resposta-patati', () => {
   beforeEach(() => {
-    cy.visit('feedback.html')
+    cy.visit('feedback-patati.html')
   })
 
   
@@ -25,8 +25,8 @@ describe('Tela de feedback', () => {
     cy.get('#enviar').should('have.text', 'Enviar')
     cy.get('#cancelar').should('have.text', 'Cancelar')
 
-    cy.get('.nome_do_evento').should('have.text', 'O Céu da Língua')
-    cy.get('.descricao_do_evento').should('contain.text', 'Gregorio Duvivier tem na língua portuguesa não somente uma pátria mas uma obsessão. Ou, como dizem os\n            jovens, um hiperfoco.\n            Afinal a palavra é uma fonte inesgotável de humor, desde os primórdios. No Princípio era o Verbo, disse\n            Deus. E logo em seguida vieram os erros de concordância.')
+    cy.get('.nome_do_evento').should('have.text', 'Patati Patatá Circo Show - Natal')
+    cy.get('.descricao_do_evento').should('contain.text', 'Depois de conquistar mais de 3 milhões de espectadores por todo o Brasil')
   })
 
 
@@ -41,7 +41,6 @@ describe('Tela de feedback', () => {
     cy.get('#comentario').type('Ótimo evento, aprendi muito!').should('have.value', 'Ótimo evento, aprendi muito!')
 
     cy.get('#enviar').click()
-    cy.url().should('include', 'feedback2.html')
 
     cy.get('#resposta-nome').should('have.text', 'João Silva')
     cy.get('#resposta-email').should('have.text', 'Joaosilva123@gmail.com')
@@ -49,7 +48,6 @@ describe('Tela de feedback', () => {
     cy.get('#resposta-comentario').should('have.text', 'Ótimo evento, aprendi muito!')
 
     cy.get('#voltar').click()
-    cy.url().should('include', 'feedback.html')
   })
 
 

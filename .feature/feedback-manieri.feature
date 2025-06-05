@@ -1,4 +1,4 @@
-Feature: Tela de feedback-manieri
+Feature: Tela de feedback-manieri e resposta-manieri
 
   Scenario: Carregar os elementos da tela corretamente
     Given the user accesses the feedback page

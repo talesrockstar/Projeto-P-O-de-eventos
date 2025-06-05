@@ -1,4 +1,4 @@
-Feature: Tela de feedback-patati
+Feature: Tela de feedback-patati e resposta-patati
 
   Scenario: Carregar os elementos da tela corretamente
     Given the user accesses the feedback page

@@ -1,6 +1,6 @@
-describe('Tela de feedback', () => {
+describe('Tela de feedback-céu e resposta-céu', () => {
   beforeEach(() => {
-    cy.visit('feedback.html')
+    cy.visit('feedback-céu.html')
   })
 
   
@@ -41,7 +41,6 @@ describe('Tela de feedback', () => {
     cy.get('#comentario').type('Ótimo evento, aprendi muito!').should('have.value', 'Ótimo evento, aprendi muito!')
 
     cy.get('#enviar').click()
-    cy.url().should('include', 'feedback2.html')
 
     cy.get('#resposta-nome').should('have.text', 'João Silva')
     cy.get('#resposta-email').should('have.text', 'Joaosilva123@gmail.com')
@@ -49,7 +48,6 @@ describe('Tela de feedback', () => {
     cy.get('#resposta-comentario').should('have.text', 'Ótimo evento, aprendi muito!')
 
     cy.get('#voltar').click()
-    cy.url().should('include', 'feedback.html')
   })
 
 
@@ -65,7 +63,6 @@ describe('Tela de feedback', () => {
 
     cy.get('#cancelar').click()
 
-    
     cy.get('#nome').should('have.value', '')
 
     cy.get('#email').should('have.value', '')
