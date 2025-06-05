@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resposta do Feedback</title>
+  <link rel="stylesheet" href="src/css/feedback.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <div class="left-section">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+        </svg>
+        <span class="logo">Plannea</span>
+      </div>
+
+      <div class="right-section">
+        <img class="avatar" src="src/img/imagem do figma.png" alt="avatar">
+        <span>Thomas</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+          <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+        </svg>
+        <div class="notification">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
+          </svg>
+          <span class="notification-dot"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="conteudo">
+      <div class="feedback">
+        <div class="titulo">
+          <h1>Feedback Enviado</h1>
+        </div>
+        <div class="formulario">
+          <div class="resposta-container">
+            <div class="resposta-item">
+              <h3>Nome:</h3>
+              <div class="resposta-valor" id="resposta-nome"></div>
+            </div>
+
+            <div class="resposta-item">
+              <h3>Email:</h3>
+              <div class="resposta-valor" id="resposta-email"></div>
+            </div>
+
+            <div class="resposta-item">
+              <h3>Nível de satisfação:</h3>
+              <div class="nivel-resposta" id="resposta-nivel">
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+              </div>
+            </div>
+
+            <div class="resposta-item">
+              <h3>Comentário:</h3>
+              <div class="resposta-valor" id="resposta-comentario"></div>
+            </div>
+
+            <div class="botoes">
+              <button type="button" id="voltar">Voltar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="infos">
+        <img src="src/img/patati.svg" alt="Imagem descritiva">
+        <div class="texto">
+          <h1>Patati Patatá Circo Show - Natal</h1>
+          <p>Depois de conquistar mais de 3 milhões de espectadores por todo o Brasil, o
+            Patati Patatá Circo Show desembarca para uma temporada de apresentações que promete transformar as sextas,
+            sábados, domingos e feriados em momentos inesquecíveis para toda a família. Com estrutura projetada para
+            oferecer segurança, conforto e diversão, o espetáculo se destaca por sua proposta única de interação entre o
+            público e os personagens da consagrada série Parque Patati Patatá , sucesso tanto na TV.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="src/js/resposta-patati.js"></script>
+</body> 
+</html>
