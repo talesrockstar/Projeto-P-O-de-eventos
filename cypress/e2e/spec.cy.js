@@ -62,7 +62,7 @@ describe("Testes da Sidebar e Header", () => {
       // Abre
       cy.get(".botao-menu").click();
       cy.get(".barra-lateral").should("have.class", "ativo");
-      cy.get(".barra-lateral").should("have.css", "transform", "");
+      cy.get(".barra-lateral").should("have.css", "transform", "matrix(1, 0, 0, 1, 0, 0)");
       cy.get(".barra-lateral-overlay").should("have.class", "ativo").and("be.visible");
       cy.get(".botao-menu").should("contain.text", "✕");
 

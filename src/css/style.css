@@ -20,6 +20,7 @@
 
   /* Tamanhos */
   --largura-barra-lateral: 250px;
+  --espaco-header-mobile: 60px; /* Espaço para o botão menu */
   --borda-raio-padrao: 0.75rem;
 
   /* Efeitos */
@@ -46,6 +47,7 @@ body {
    NOVA BARRA LATERAL
 ===================================================== */
 .barra-lateral {
+ 
   position: fixed;
   top: 0;
   left: 0;
@@ -60,6 +62,9 @@ body {
   transform: translateX(0); /* Visível por padrão */
   transition: transform var(--transicao-padrao);
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+.barra-lateral span {
+  margin-top: 30px;
 }
 
 /* Marca e título */
@@ -174,12 +179,12 @@ body {
 ===================================================== */
 .container-pesquisa {
   margin-left: var(--largura-barra-lateral);
-  padding: 1rem 2rem;
+  padding: 1rem 2rem; /* Padding padrão desktop */
   background-color: var(--cor-fundo);
   position: sticky;
   top: 0;
   z-index: 900;
-  transition: margin-left var(--transicao-padrao);
+  transition: margin-left var(--transicao-padrao), padding-left var(--transicao-padrao);
 }
 
 .container-header {
@@ -192,14 +197,9 @@ body {
 
 .pesquisa {
   flex-grow: 1;
-  /* Opcional: remover text-align se não quiser centralizar */
-  /* text-align: center; */
 }
 
 .controle-formulario {
-  /* width: 50%; */ /* Remover ou ajustar se necessário */
-  /* max-width: 600px; */ /* Remover ou ajustar se necessário */
-  /* margin: 0 auto; */ /* Remover se não for centralizado */
   width: 100%; /* Ocupar espaço disponível */
   background-color: var(--cor-fundo-secundaria);
   border: none;
@@ -247,18 +247,17 @@ body {
 /* =====================================================
    CONTEÚDO PRINCIPAL (Adaptado)
 ===================================================== */
-/* Usar a classe .conteudo-principal se o HTML for atualizado,
-   senão, continuar usando main e adaptar */
 main { /* Ou .conteudo-principal */
-  margin-left: var(--largura-barra-lateral);
-  padding: 2rem 3rem;
+  /* AJUSTE DESKTOP: Removido margin-left redundante */
+  /* margin-left: var(--largura-barra-lateral); */
+  padding: 2rem; /* AJUSTE DESKTOP: Reduzido padding horizontal */
   background-color: var(--cor-fundo);
   min-height: calc(100vh - 70px); /* Ajustar altura se header for sticky */
-  transition: margin-left var(--transicao-padrao);
+  transition: margin-left var(--transicao-padrao), padding-left var(--transicao-padrao);
   /* Manter estilos de layout desktop daqui */
   display: flex;
   flex-direction: row;
-  gap: 30px;
+  gap: 2rem; /* AJUSTE DESKTOP: Gap entre colunas mantido ou ajustado se necessário */
 }
 
 .resumoUser {
@@ -357,7 +356,6 @@ main { /* Ou .conteudo-principal */
   font-weight: normal;
 }
 
-
 .quantidade_FP,
 .quantidade_FO,
 .quantidade_C,
@@ -368,12 +366,6 @@ main { /* Ou .conteudo-principal */
   margin: 0;
   line-height: 1;
 }
-.tres-pontos {
-  display: flex;
-  margin-bottom: auto;
-  font-size: 12px;
-  
-}
 
 /* Histórico Section - Desktop */
 .historico {
@@ -382,7 +374,6 @@ main { /* Ou .conteudo-principal */
 }
 
 .historico ul {
-  flex-direction: column;
   list-style: none;
   padding: 0 0 15px 0;
   margin: 0;
@@ -393,7 +384,6 @@ main { /* Ou .conteudo-principal */
   overflow-x: initial;
   white-space: initial;
   scrollbar-width: initial;
-  
 }
 
 .historico ul::-webkit-scrollbar {
@@ -414,7 +404,7 @@ main { /* Ou .conteudo-principal */
   text-align: center;
 }
 
-.historico span.ano-2024 {
+.historico span[class="2024"] {
   display: block;
   width: 100%;
   text-align: left;
@@ -452,11 +442,15 @@ main { /* Ou .conteudo-principal */
   .container-pesquisa {
     margin-left: 0;
     padding: 0.75rem 1rem;
+    /* AJUSTE MOBILE: Adiciona padding à esquerda para não sobrepor botão */
+    padding-left: var(--espaco-header-mobile);
   }
 
   main { /* Ou .conteudo-principal */
     margin-left: 0;
     padding: 1.5rem 1rem;
+    /* AJUSTE MOBILE: Adiciona padding à esquerda para não sobrepor botão */
+    padding-left: var(--espaco-header-mobile);
     /* Manter estilos responsivos daqui */
     flex-direction: column;
     gap: 0;
@@ -529,7 +523,7 @@ main { /* Ou .conteudo-principal */
      min-width: 150px;
   }
 
-  .historico span.ano-2024 {
+  .historico span[class="2024"] {
      display: none;
   }
 }
@@ -542,7 +536,7 @@ main { /* Ou .conteudo-principal */
       overflow: hidden; /* Impede rolagem do body quando menu aberto */
   }
 
-  .container-pesquisa {
+  /* .container-pesquisa { */
     /* Header fica fixo? Se sim: */
     /* position: fixed; */
     /* top: 0; */
@@ -551,7 +545,7 @@ main { /* Ou .conteudo-principal */
     /* z-index: 900; */
     /* Se header fixo, adicionar padding-top ao body/main */
     /* body { padding-top: 60px; } */
-  }
+  
 
   .container-header {
       gap: 0.5rem;
