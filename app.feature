@@ -68,3 +68,5 @@ Funcionalidade: Barra Lateral e Cabeçalho da Aplicação Plannea
     Quando digito "Festa Junina" no campo de pesquisa do cabeçalho
     Então o campo de pesquisa deve conter "Festa Junina"
 
+
+
