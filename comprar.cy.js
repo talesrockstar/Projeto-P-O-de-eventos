@@ -1,20 +1,20 @@
 describe('template spec', () => {
 
   beforeEach(() => {
-    cy.visit('index.html')
+    cy.visit('comprar.html')
   })
 
   it('Click on the back button', () => {
     cy.get('.navbar-brand').should('have.attr', 'href', 'https://www.globo.com')
-    // cy.get('.navbar-brand').click()
-    // cy.url().should('eq', 'https://www.globo.com')
+    cy.get('.navbar-brand').click()
+    cy.url().should('eq', 'https://www.globo.com')
   })
 
   it('Click on the profile button', () => {
     cy.get('.nav-link').click()
     cy.contains('Ver Perfil').should('have.attr', 'href', 'https:\\\\globo.com')
-    // cy.contains('Ver Perfil').click()
-    // cy.url().should('eq', 'https:\\\\globo.com')
+    cy.contains('Ver Perfil').click()
+    cy.url().should('eq', 'https:\\\\globo.com')
   })
 
   it('Click on the buy ticket button', () => {

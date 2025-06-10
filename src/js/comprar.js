@@ -1,14 +1,3 @@
-/*1 - Quando clicar no botão de voltar deve voltar para a página inicial - FEITO
-2 - O botão do menu suspenso da aba do perfil deve redirecionar para a 
-aba correta quando clicado - FEITO
-3 - Quando clicar no Mostrar mais, o botão mostrar mais deve sumir, 
-o texto todo deve aparecer, e a sombra também deve sumir - FEITO
-4 - Quando clicar em comprar ingresso deve redirecionar para 
-a aba de escolher o tipo de ingresso - FEITO
-5 - Após escolher o ingresso, deve - se abrir uma aba para selecionar se é 
-meia ou inteira e confirmar a compra - FEITO
-6 - Após confirmar a compra, deve-se voltar para a página inicial e o evento deve ser adicionado na aba "Meus eventos"*/
-
 document.getElementById("comprarPrincipal").addEventListener("click", function () {
   window.scrollTo(120, document.body.scrollHeight);
 })

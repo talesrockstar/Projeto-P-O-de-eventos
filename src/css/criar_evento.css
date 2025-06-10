@@ -1,0 +1,405 @@
+/* Variáveis CSS */
+:root {
+    /* Cores */
+    --color-background: #1E1E1E;
+    --color-form-bg: #2D2D2D;
+    --color-input-bg: #3A3A3A;
+    --color-border: #444444;
+    --color-border-highlight: #3B82F6;
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #CCCCCC;
+    --color-text-placeholder: #999999;
+    --color-button-primary: #FF5A1F;
+    --color-button-primary-hover: #FF7A4F;
+    --color-button-secondary: #444444;
+    --color-button-secondary-hover: #555555;
+    
+    /* Espaçamentos */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    
+    /* Bordas */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    
+    /* Sombras */
+    --shadow-default: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    /* Transições */
+    --transition-default: all 0.3s ease;
+}
+
+/* Reset e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+/* Container principal */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para o novo header */
+header .container {
+    min-height: auto;
+    padding: 0;
+}
+
+.navbar {
+    width: 100%;
+    padding: var(--spacing-md);
+    background-color: var(--color-background);
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.voltar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar-brand svg {
+    margin-right: var(--spacing-sm);
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+}
+
+.perfil img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: var(--spacing-sm);
+}
+
+.list-unstyled {
+    list-style: none;
+}
+
+.nav-link {
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    background-color: var(--color-form-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-sm);
+    min-width: 120px;
+    position: absolute;
+    right: 0;
+    display: none;
+}
+
+.dropdown-item {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: block;
+    border-radius: var(--border-radius-sm);
+}
+
+.dropdown-item:hover {
+    background-color: var(--color-input-bg);
+}
+
+/* Conteúdo principal */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 var(--spacing-md) var(--spacing-xl);
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+/* Formulário */
+.event-form {
+    width: 100%;
+    max-width: 100%;
+    background-color: var(--color-form-bg);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+}
+
+/* Seções do formulário */
+.form-section {
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+}
+
+.section-number {
+    margin-right: var(--spacing-sm);
+}
+
+.section-subtitle {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Grupos de formulário */
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* Campos de entrada */
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: var(--spacing-md);
+    background-color: var(--color-input-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    color: var(--color-text-primary);
+    font-size: 16px;
+    transition: var(--transition-default);
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder {
+    color: var(--color-text-placeholder);
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-border-highlight);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Select personalizado */
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: '';
+    position: absolute;
+    right: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--color-text-secondary);
+    pointer-events: none;
+}
+
+select {
+    appearance: none;
+    padding-right: 30px;
+}
+
+/* Upload de imagem */
+.image-upload {
+    cursor: pointer;
+}
+
+.image-upload-placeholder {
+    width: 100%;
+    height: 120px;
+    background-color: var(--color-input-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.plus-icon {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-input-bg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Campos de data e hora */
+.date-time-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* Botões de ação */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-lg);
+    background-color: var(--color-form-bg);
+}
+
+.btn-cancel {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--color-button-secondary);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--transition-default);
+}
+
+.btn-create {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--color-button-primary);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-default);
+}
+
+.btn-cancel:hover {
+    background-color: var(--color-button-secondary-hover);
+}
+
+.btn-create:hover {
+    background-color: var(--color-button-primary-hover);
+}
+
+/* Responsividade para Tablet (min-width: 744px and max-width: 1279px) */
+@media only screen and (min-width: 744px) and (max-width: 1279px) {
+    .main-content {
+        padding: 0 var(--spacing-xl) var(--spacing-xl);
+    }
+    
+    .event-form {
+        max-width: 600px;
+    }
+    
+    .form-row {
+        flex-direction: row;
+    }
+    
+    .form-row .form-group {
+        flex: 1;
+    }
+    
+    .date-time-row {
+        flex-direction: row;
+    }
+    
+    .image-upload-placeholder {
+        height: 150px;
+    }
+}
+
+/* Responsividade para Desktop (min-width: 1280px) */
+@media only screen and (min-width: 1280px) {
+    .main-content {
+        padding: var(--spacing-xl);
+    }
+    
+    .event-form {
+        max-width: 800px;
+        /* Borda azul removida conforme solicitado */
+    }
+    
+    .form-row {
+        flex-direction: row;
+    }
+    
+    .form-row .form-group {
+        flex: 1;
+    }
+    
+    .date-time-row {
+        flex-direction: row;
+    }
+    
+    .image-upload-placeholder {
+        height: 180px;
+    }
+    
+    .form-actions {
+        justify-content: flex-end;
+        gap: var(--spacing-md);
+    }
+    
+    .btn-cancel {
+        order: 1;
+    }
+    
+    .btn-create {
+        order: 2;
+    }
+}
