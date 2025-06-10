@@ -102,12 +102,14 @@ span {
 }
 
 h1{
+    text-align: center;
     color: white;
     margin-bottom: 15px;
     font-family: 'Poppins', 'Inter', sans-serif;
 }
 
 h2 {
+    text-align: left;
     justify-content: flex-start;
     font-size: 1.6em;
     margin-bottom: 20px;
