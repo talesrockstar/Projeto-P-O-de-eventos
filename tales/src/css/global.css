@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* variáveis de cores, outros estilos e/ou reset de font-size */ 
+
+:root {
+    --red: red;
+}
