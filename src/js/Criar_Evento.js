@@ -1,180 +1,266 @@
-const form = document.getElementById("every-form");
-const display = document.getElementById("evento-display");
-let eventoAtual = null;
+// Adicionar suporte ao Bootstrap para o dropdown
+document.addEventListener('DOMContentLoaded', function() {
+    // Referências aos elementos
+    const eventForm = document.getElementById('event-form');
+    const imageUploadPlaceholder = document.querySelector('.image-upload-placeholder');
+    const imageInput = document.getElementById('event-image');
+    const dateInput = document.getElementById('event-date');
+    const timeInput = document.getElementById('event-time');
+    const cancelButton = document.querySelector('.btn-cancel');
+    const createButton = document.querySelector('.btn-create');
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const titulo = document.getElementById("titulo").value.trim();
-    const descricao = document.getElementById("descricao").value.trim();
-    const inicio = document.getElementById("inicio").value.trim();
-    const fim = document.getElementById("fim").value.trim();
-
-    if(!titulo || !descricao || !inicio || !fim){
-        exibirMensagemErro("Preencha os campos obrigatórios: título, descrição, inicio e fim.");
-        return;
-    }
-
-    if(new Date(inicio) > new Date(fim)){
-        exibirMensagemErro("A data de término deve ser posterior a data de início.");
-        return;
-    }
-
-    const capacidade = document.getElementById("capacidade").value.trim();
-    if(capacidade && (isNaN(capacidade)|| capacidade <= 0)){
-        exibirMensagemErro("Capacidade deve ser um numero positivo.");
-        return;
-    }
-
-    const evento = {
-        titulo: titulo,
-        descricao: descricao,
-        inicio: inicio,
-        fim: fim,
-        local: document.getElementById("local").value,
-        imagem: document.getElementById("preview").src,
-        tipo: document.getElementById("tipo").value,
-        capacidade: capacidade,
-    };
-
-    eventoAtual = evento;
-    renderEvento();
-    form.reset();
-
-    document.getElementById('preview').src = '';
-    document.getElementById('preview').style.display = 'none';
-
-    exibirMensagemSucesso("Evento criado com sucesso!");
-});
-
-function renderEvento() {
-    if (!eventoAtual) return;
-
-    display.innerHTML = `
-        <div class="evento-detalhes">
-            <h2>${eventoAtual.titulo}</h2>
-            <p><strong>Descrição:</strong> ${eventoAtual.descricao}</p>
-            <p><strong>Início:</strong> ${eventoAtual.inicio}</p>
-            <p><strong>Término:</strong> ${eventoAtual.fim}</p>
-            <p><strong>Local:</strong> ${eventoAtual.local}</p>
-            <p><strong>Tipo:</strong> ${eventoAtual.tipo}</p>
-            <p><strong>Capacidade:</strong> ${eventoAtual.capacidade} participantes</p>
-            ${eventoAtual.imagem ? `<img src="${eventoAtual.imagem}" alt="Imagem do evento" />` : ""}
-            <div class="action-buttons">
-                <button onclick="editarEvento()">Editar</button>
-                <button class="delete" onclick="excluirEvento()">Excluir</button>
-            </div>
-        </div>
-    `;
-}
-
-function editarEvento() {
-    if (!eventoAtual) return;
-
-    document.getElementById("titulo").value = eventoAtual.titulo;
-    document.getElementById("descricao").value = eventoAtual.descricao;
-    document.getElementById("inicio").value = eventoAtual.inicio;
-    document.getElementById("fim").value = eventoAtual.fim;
-    document.getElementById("local").value = eventoAtual.local;
-    document.getElementById("preview").src = eventoAtual.imagem;
-    document.getElementById("preview").style.display = 'block';
-    document.getElementById("tipo").value = eventoAtual.tipo;
-    document.getElementById("capacidade").value = eventoAtual.capacidade;
-
-    display.innerHTML = "";
-}
-
-function excluirEvento() {
-    eventoAtual = null;
-    display.innerHTML = "";
-    exibirMensagemErro("Evento excluído.");
-}
-
-document.getElementById("toggle-mensagens").addEventListener("click", function () {
-    const mensagens = document.querySelectorAll(".mensagem.erro, .mensagem.sucesso");
-
-    if (mensagens.length === 0) {
-        alert("Nenhuma mensagem para exibir.");
-        return;
-    }
-
-    mensagens.forEach(el => {
-        if (el.style.display === "none") {
-            el.style.display = "block";
-            this.textContent = "Ocultar Mensagens de Sucesso/Erro";
-        } else {
-            el.style.display = "none";
-            this.textContent = "Mostrar Mensagens de Sucesso/Erro";
-        }
-    })
-});
-
-function exibirMensagemErro(mensagem) {
-    const mensagemErro = document.createElement("div");
-    mensagemErro.className = "mensagem erro";
-    mensagemErro.innerText = mensagem;
-    document.body.appendChild(mensagemErro);
-    setTimeout(() => {
-        mensagemErro.remove();
-    }, 4000);
-}
-
-function exibirMensagemSucesso(mensagem) {
-    const mensagemSucesso = document.createElement("div");
-    mensagemSucesso.className = "mensagem sucesso";
-    mensagemSucesso.innerText = mensagem;
-    document.body.appendChild(mensagemSucesso);
-    setTimeout(() => {
-        mensagemSucesso.remove();
-    }, 4000);
-}
-
-document.getElementById('every-image').addEventListener('change', function () {
-    const file = this.files[0];
-    const preview = document.getElementById('preview');
-    const quadrado = document.querySelector('.quadrado');
-
-    if (file && file.type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            preview.src = e.target.result;
-            preview.style.display = 'block';
-
-            quadrado.innerHTML = '';
-            const img = document.createAttribute('img');
-            img.src = e.target.result;
-            img.alt = 'Imagem do Evento';
-            img.className = 'imagem-evento';
-            quadrado.appendChild(img);
+    // Implementar funcionalidade de dropdown para o perfil
+    if (dropdownToggle && dropdownMenu) {
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+            
+            if (isExpanded) {
+                dropdownToggle.setAttribute('aria-expanded', 'false');
+                dropdownMenu.style.display = 'none';
+            } else {
+                dropdownToggle.setAttribute('aria-expanded', 'true');
+                dropdownMenu.style.display = 'block';
             }
-        reader.readAsDataURL(file);
-    } else {
-        preview.src = '';
-        preview.style.display = 'none';
+        });
+        
+        // Fechar dropdown ao clicar fora
+        document.addEventListener('click', function(e) {
+            if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownToggle.setAttribute('aria-expanded', 'false');
+                dropdownMenu.style.display = 'none';
+            }
+        });
     }
-});
-const input = document.getElementById('inputImagem');
-const imagem = document.getElementById('imagem');
 
-  input.addEventListener('change', function(event) {
-    const arquivo = event.target.files[0];
+    // Função para visualização da imagem
+    if (imageUploadPlaceholder && imageInput) {
+        imageUploadPlaceholder.addEventListener('click', function() {
+            imageInput.click();
+        });
 
-    if (arquivo) {
-      const leitor = new FileReader();
-
-      leitor.onload = function(e) {
-        imagem.src = e.target.result; 
-      }
-
-      leitor.readAsDataURL(arquivo); 
+        imageInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file && file.type.match('image.*')) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    // Criar elemento de imagem e aplicar estilos
+                    imageUploadPlaceholder.innerHTML = '';
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.style.width = '100%';
+                    img.style.height = '100%';
+                    img.style.objectFit = 'cover';
+                    img.style.borderRadius = 'var(--border-radius-md)';
+                    
+                    // Adicionar botão de remoção
+                    const removeBtn = document.createElement('div');
+                    removeBtn.className = 'remove-image';
+                    removeBtn.innerHTML = '×';
+                    removeBtn.style.position = 'absolute';
+                    removeBtn.style.top = '8px';
+                    removeBtn.style.right = '8px';
+                    removeBtn.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+                    removeBtn.style.color = 'white';
+                    removeBtn.style.width = '24px';
+                    removeBtn.style.height = '24px';
+                    removeBtn.style.borderRadius = '50%';
+                    removeBtn.style.display = 'flex';
+                    removeBtn.style.justifyContent = 'center';
+                    removeBtn.style.alignItems = 'center';
+                    removeBtn.style.cursor = 'pointer';
+                    removeBtn.style.fontSize = '18px';
+                    
+                    // Adicionar elementos ao DOM
+                    imageUploadPlaceholder.appendChild(img);
+                    imageUploadPlaceholder.appendChild(removeBtn);
+                    
+                    // Evento para remover a imagem
+                    removeBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        resetImageUpload();
+                        imageInput.value = '';
+                    });
+                };
+                
+                reader.readAsDataURL(file);
+            }
+        });
     }
-  })
-document.getElementById('every-image').addEventListener('Click', function(){
-    const preview = document.getElementById('preview');
-    preview.src = '';
-    preview.style.display = 'none';
-    const quadrado = document.querySelector('.quadrado');
-    quadrado.innerHTML = '';
-    quadrado.style.display = 'none';
-    document.getElementById('every-image').value = '';
+
+    // Função para resetar o upload de imagem
+    function resetImageUpload() {
+        imageUploadPlaceholder.innerHTML = `
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke="white" stroke-width="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5" fill="white"/>
+                <path d="M21 15L16 10L5 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="plus-icon">+</span>
+        `;
+    }
+
+    // Máscara para o campo de data
+    if (dateInput) {
+        dateInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length > 8) {
+                value = value.substring(0, 8);
+            }
+            
+            if (value.length > 4) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4) + '/' + value.substring(4);
+            } else if (value.length > 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2);
+            }
+            
+            e.target.value = value;
+        });
+    }
+
+    // Máscara para o campo de hora
+    if (timeInput) {
+        timeInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length > 4) {
+                value = value.substring(0, 4);
+            }
+            
+            if (value.length > 2) {
+                value = value.substring(0, 2) + ':' + value.substring(2);
+            }
+            
+            e.target.value = value;
+        });
+    }
+
+    // Validação básica do formulário
+    if (eventForm) {
+        eventForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obter valores dos campos
+            const eventName = document.getElementById('event-name').value.trim();
+            const eventType = document.getElementById('event-type').value;
+            const eventDescription = document.getElementById('event-description').value.trim();
+            const eventDate = document.getElementById('event-date').value.trim();
+            const eventTime = document.getElementById('event-time').value.trim();
+            const eventAddress = document.getElementById('event-address').value.trim();
+            
+            // Validação simples
+            let isValid = true;
+            let errorMessage = '';
+            
+            if (!eventName) {
+                isValid = false;
+                errorMessage = 'Por favor, informe o nome do evento.';
+                document.getElementById('event-name').focus();
+            } else if (!eventType) {
+                isValid = false;
+                errorMessage = 'Por favor, selecione o tipo de evento.';
+                document.getElementById('event-type').focus();
+            } else if (!eventDescription) {
+                isValid = false;
+                errorMessage = 'Por favor, adicione uma descrição para o evento.';
+                document.getElementById('event-description').focus();
+            } else if (!eventDate) {
+                isValid = false;
+                errorMessage = 'Por favor, informe a data do evento.';
+                document.getElementById('event-date').focus();
+            } else if (!eventTime) {
+                isValid = false;
+                errorMessage = 'Por favor, informe o horário do evento.';
+                document.getElementById('event-time').focus();
+            } else if (!eventAddress) {
+                isValid = false;
+                errorMessage = 'Por favor, informe o endereço do evento.';
+                document.getElementById('event-address').focus();
+            }
+            
+            if (!isValid) {
+                showNotification(errorMessage, 'error');
+            } else {
+                showNotification('Evento criado com sucesso!', 'success');
+                // Aqui seria o envio do formulário para o backend
+                console.log('Formulário enviado com sucesso!');
+                
+                // Simular redirecionamento após envio
+                setTimeout(() => {
+                    showNotification('Redirecionando para a lista de eventos...', 'info');
+                }, 2000);
+            }
+        });
+    }
+
+    // Botão de cancelar
+    if (cancelButton) {
+        cancelButton.addEventListener('click', function() {
+            if (confirm('Tem certeza que deseja cancelar? Todas as informações serão perdidas.')) {
+                showNotification('Operação cancelada!', 'info');
+                // Simular redirecionamento após cancelamento
+                setTimeout(() => {
+                    showNotification('Redirecionando para a página anterior...', 'info');
+                }, 1500);
+            }
+        });
+    }
+
+    // Sistema de notificação
+    function showNotification(message, type = 'info') {
+        // Criar elemento de notificação
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        
+        // Estilos para a notificação
+        notification.style.position = 'fixed';
+        notification.style.bottom = '20px';
+        notification.style.right = '20px';
+        notification.style.padding = '12px 20px';
+        notification.style.borderRadius = '4px';
+        notification.style.zIndex = '1000';
+        notification.style.minWidth = '200px';
+        notification.style.textAlign = 'center';
+        notification.style.transition = 'all 0.3s ease';
+        
+        // Definir cores com base no tipo
+        if (type === 'success') {
+            notification.style.backgroundColor = '#4CAF50';
+            notification.style.color = 'white';
+        } else if (type === 'error') {
+            notification.style.backgroundColor = '#F44336';
+            notification.style.color = 'white';
+        } else {
+            notification.style.backgroundColor = '#2196F3';
+            notification.style.color = 'white';
+        }
+        
+        // Adicionar ao DOM
+        document.body.appendChild(notification);
+        
+        // Remover após alguns segundos
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
+    }
+
+    // Adicionar efeitos de hover nos campos
+    const inputElements = document.querySelectorAll('input, textarea, select');
+    inputElements.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.style.boxShadow = '0 0 0 2px rgba(59, 130, 246, 0.3)';
+        });
+        
+        input.addEventListener('blur', function() {
+            this.style.boxShadow = 'none';
+        });
+    });
 });
