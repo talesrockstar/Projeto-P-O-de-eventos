@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de perfil</title>
+    <link rel="stylesheet" href="../css/pagina-de-perfil.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="left-section">
+                <a href="index-logado.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                        class="bi bi-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                    </svg>
+                </a>
+                <span class="logo">Plannea</span>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        <h1>Dados da conta</h1>
+        <div class="profile-section">
+            <div class="avatar-container">
+                <div class="avatar">
+                    <img src="../img/Group 221.svg" alt="Foto de perfil">
+                </div>
+            </div>
+            <div class="change-photo">
+                <div class="photo-icon">
+                    <i class="fas fa-image"></i>
+                </div>
+                <span>Alterar foto</span>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <div class="form-column">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <div class="input-with-icon">
+                        <input type="text" id="nome" value="Thomas" disabled>
+                        <button class="edit-button">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-with-icon">
+                        <input type="email" id="email" value="thomas123@gmail.com" disabled>
+                        <button class="edit-button">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <div class="input-with-icon">
+                        <input type="password" id="senha" value="********" disabled>
+                        <button class="edit-button">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-column">
+                <div class="form-group">
+                    <label for="endereco">Endereço</label>
+                    <div class="input-with-icon">
+                        <input type="text" id="endereco" value="Rua das Acácias, 123 - Bairro Jardim das Flores"
+                            disabled>
+                        <button class="edit-button">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <div class="input-with-icon">
+                        <input type="tel" id="telefone" value="(31) 99876-5432" disabled>
+                        <button class="edit-button">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    </div>
+
+    <script src="../js/pagina-de-perfil.js"></script>
+</body>
+</html>

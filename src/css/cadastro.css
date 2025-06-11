@@ -1,0 +1,220 @@
+body {
+    background-image: url("../img/imgfundo2.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: Poppins, 'Inter', sans-serif;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .form {
+    font-family: Poppins, 'Inter', sans-serif;
+    display: left;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 6px;
+    width: 350px;
+    height: 52px;
+    border: white 1px solid;
+}
+.endereco{
+    background-color: transparent;
+    margin-top: 25px;
+    font-family: Poppins, 'Inter', sans-serif;
+}
+.endereco input {
+    color: white;
+}
+
+.telefone{
+    background-color: transparent;
+    margin-top: 25px;
+    font-family: Poppins, 'Inter', sans-serif;
+}
+.telefone input {
+    color: white;
+}
+.nome{
+    background-color: transparent;
+    margin-top: 25px;
+    font-family: Poppins, 'Inter', sans-serif;
+}
+.nome input {
+    color: white;
+}
+
+.email {
+    background-color: transparent;
+    margin-top: 25px;
+    font-family: Poppins, 'Inter', sans-serif;
+
+
+}
+
+.email input {
+    color: white;
+}
+
+.senha {
+
+    background-color: transparent;
+    margin-top: 25px;
+    font-family: Poppins, 'Inter', sans-serif;
+}
+.senha input {
+    color: white;
+}
+.adicionarimg{
+    background-color: transparent;
+    margin-top: 25px;
+    font-family: Poppins, 'Inter', sans-serif;
+}
+
+h1 {
+    font-family: Poppins, 'Inter', SemiBold;
+    color: #fff;
+    font-size: 43px;
+    font-family: Poppins, ;
+    margin-bottom: 40px;
+}
+
+button.btn {
+    font-family: Poppins, 'Inter', sans-serif;
+    justify-content: center;
+    width: 350px;
+    height: 52px;
+    border-radius: 6px;
+    background-color: #FF7551;
+    color: #fff;
+    margin-top: 25px;
+}
+
+button.btn:hover {
+    background-color: #fc3a0a;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.input-svg {
+    position: relative;
+    display: inline-block;
+}
+
+.input-svg svg {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    fill: #999;
+    pointer-events: none;
+}
+
+.input-svg input {
+    padding-left: 40px; /* Espaço para o ícone */
+    height: 32px;
+    font-size: 16px;
+}
+.btn_btn-link {
+    background: transparent;
+    border-color: transparent;
+    color: white;
+    text-decoration: none; 
+}
+
+.mb-3 {
+    width: 350px;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    gap: 1rem;
+}
+
+.avatar-container {
+    margin-right: 10px;
+}
+
+.avatar img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+}
+
+.change-photo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.change-photo span {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.change-photo span img {
+   width: 2.5rem;
+    height: 2.5rem;
+}
+
+.photo-icon {
+    margin-right: 5px;
+}
+
+@media (max-width: 743px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+        
+    }
+
+    .container .form,
+    button.btn {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .input-svg input {
+        width: 100%;
+        font-size: 15px;
+        padding-left: 38px;
+        height: 36px;
+    }
+
+    .input-svg svg {
+        width: 18px;
+        height: 18px;
+        left: 8px;
+    }
+    
+    .mb-3 {
+        width: 240px;
+        
+    }
+}
+
+@media only-screen and (max-width: 400px) {
+    .mb-3 {
+        width: 95vw;
+    }
+}
+
+@media only-screen and (min-width: 401px) {
+    .mb-3 {
+        width: 10px;
+    }
+}

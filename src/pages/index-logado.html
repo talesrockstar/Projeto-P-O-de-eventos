@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Plannea - Plataforma de eventos e entretenimento" />
+  <title>Plannea - Eventos</title>
+  <!-- CSS principal do projeto -->
+  <link rel="stylesheet" href="../css/styles.css" />
+  <!-- Fontes Google e Bootstrap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Link de acessibilidade para pular para o conteúdo principal -->
+  <a href="#conteudo-principal" class="pular-link">Pular para o conteúdo</a>
+
+  <!-- ==========================
+       Barra lateral de navegação
+  =========================== -->
+  <aside class="barra-lateral" aria-label="Menu de navegação principal">
+    <a href="/" class="barra-lateral__marca">
+      <span class="barra-lateral__titulo">Plannea</span>
+    </a>
+    <nav class="barra-lateral__nav">
+      <ul class="barra-lateral__lista">
+        <li class="barra-lateral__item">
+          <a href="index-logado.html" class="barra-lateral__link barra-lateral__link--ativo" aria-current="page">
+            <img class="barra-lateral__icone" src="../img/Home.svg" alt="Ícone Início">
+            Início
+          </a>
+        </li>
+        <li class="barra-lateral__item">
+          <a href="Criar_Evento.html" class="barra-lateral__link">
+            <img class="barra-lateral__icone" src="../img/Criar_Evento.svg" alt="Ícone Criar eventos">
+            Criar eventos
+          </a>
+        </li>
+        <li class="barra-lateral__item">
+          <a href="dashboard.html" class="barra-lateral__link">
+            <img class="barra-lateral__icone" src="../img/Detalhes de Evento.svg" alt="Ícone Detalhes de Evento">
+            Dashboard
+          </a>
+        </li>
+        <li class="barra-lateral__item">
+          <a href="agenda.html" class="barra-lateral__link">
+            <img class="barra-lateral__icone" src="../img/Agenda.svg" alt="Ícone Agenda">
+            Agenda
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Overlay para menu mobile (aparece ao abrir o menu em telas pequenas) -->
+  <div class="barra-lateral-overlay" aria-hidden="true"></div>
+
+  <!-- =======================================
+       Cabeçalho com pesquisa e usuário logado
+  ======================================== -->
+  <header class="container-pesquisa">
+    <div class="container-header">
+      <!-- Campo de pesquisa de eventos -->
+      <div class="pesquisa">
+        <input type="search" class="controle-formulario" placeholder="Pesquisar eventos, locais, datas..."
+          aria-label="Pesquisar">
+      </div>
+      <!-- Informações do usuário logado -->
+      <div class="container-usuario">
+        <a href="pagina-de-perfil.html"><img src="../img/FOTO_PERFIL.png" alt="Foto de perfil"
+            class="avatar-usuario"></a>
+        <a href="pagina-de-perfil.html"><span class="nome-usuario">Tales rodrigues</span></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================
+       Conteúdo principal da página
+  ============================= -->
+  <main class="conteudo-principal" id="conteudo-principal">
+    <!-- Evento em destaque -->
+    <h2 class="titulo-evento mb-3">Evento em destaque</h2>
+
+    <!-- Carrossel de Imagens em destaque (Bootstrap) -->
+    <div id="carouselExample" class="carousel slide carrossel" data-bs-ride="carousel"
+      aria-label="Carrossel de eventos em destaque">
+      <!-- Indicadores do carrossel -->
+      <div class="carousel-indicators carrossel-indicadores">
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <!-- Slides do carrossel -->
+      <div class="carousel-inner carrossel-interno">
+        <div class="carousel-item carrossel-item active">
+          <a href="comprar copy.html">
+          <img src="../img/Mauricio capa.svg" class="d-block w-100 img-uniforme"
+            alt="Mauricio Manieri - Tour Classics 2025" loading="eager">
+            </a>
+        </div>
+        <div class="carousel-item carrossel-item">
+          <img data-src="../img/Loira 2.svg" class="d-block w-100 img-uniforme" alt="Imagem do evento Loira 2"
+            loading="lazy">
+        </div>
+        <div class="carousel-item carrossel-item">
+          <img data-src="../img/Ludmila.png" class="d-block w-100 img-uniforme" alt="Imagem do evento Ludmila"
+            loading="lazy">
+        </div>
+      </div>
+      <!-- Controles do carrossel -->
+      <button class="carousel-control-prev carrossel-controle-anterior" type="button" data-bs-target="#carouselExample"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon carrossel-controle-anterior-icone" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next carrossel-controle-proximo" type="button" data-bs-target="#carouselExample"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon carrossel-controle-proximo-icone" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <!-- ======================================
+         Carrossel de Cards de eventos passados
+    ======================================= -->
+    <div class="album py-5">
+      <h2 class="titulo-evento mb-4" id="eventos-passados">Outros Eventos</h2>
+      <section class="secao-carrossel-cards" aria-labelledby="eventos-passados">
+        <div class="carrossel-wrapper">
+          <!-- Botão para rolar para o card anterior -->
+          <button class="botao-carrossel botao-anterior" aria-label="Anterior">&#10094;</button>
+          <!-- Lista de cards de eventos passados -->
+          <div class="carrossel-cards" id="carrosselCards" tabindex="0" aria-label="Carrossel de eventos passados">
+            <!-- Card 1 -->
+            <div class="card card-personalizado">
+              <img data-src="../img/Patati patata.svg" class="card-img-top card-img-topo"
+                alt="Imagem do evento Patati Patatá" loading="lazy">
+              <div class="card-body card-corpo">
+                <h5 class="card-title card-titulo">Patati Patatá Circo Show</h5>
+                <p class="card-text card-texto texto-secundario">16 de Mai • 15 de Jun</p>
+                <button class="btn btn-sm btn-outline-secondary">Saiba mais</button>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card card-personalizado">
+              <img data-src="../img/malvadas.jpg" class="card-img-top card-img-topo"
+                alt="Imagem do evento Meninas Malvadas" loading="lazy">
+              <div class="card-body card-corpo">
+                <h5 class="card-title card-titulo">O Céu da Língua</h5>
+                <p class="card-text card-texto texto-secundario">08 de Mai • 25 de Mai</p>
+                <button class="btn btn-sm btn-outline-secondary">Saiba mais</button>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card card-personalizado">
+              <img data-src="../img/malvadas.jpg" class="card-img-top card-img-topo"
+                alt="Imagem do evento Meninas Malvadas" loading="lazy">
+              <div class="card-body card-corpo">
+                <h5 class="card-title card-titulo">Meninas Malvadas</h5>
+                <p class="card-text card-texto texto-secundario">02 de Mai • 08 de Jun</p>
+                <button class="btn btn-sm btn-outline-secondary">Saiba mais</button>
+              </div>
+            </div>
+            <!-- Cards repetidos para exemplo visual -->
+            <div class="card card-personalizado">
+              <img data-src="../img/malvadas.jpg" class="card-img-top card-img-topo"
+                alt="Imagem do evento Meninas Malvadas" loading="lazy">
+              <div class="card-body card-corpo">
+                <h5 class="card-title card-titulo">Meninas Malvadas</h5>
+                <p class="card-text card-texto texto-secundario">02 de Mai • 08 de Jun</p>
+                <button class="btn btn-sm btn-outline-secondary">Saiba mais</button>
+              </div>
+            </div>
+            <div class="card card-personalizado">
+              <img data-src="../img/malvadas.jpg" class="card-img-top card-img-topo"
+                alt="Imagem do evento Meninas Malvadas" loading="lazy">
+              <div class="card-body card-corpo">
+                <h5 class="card-title card-titulo">Meninas Malvadas</h5>
+                <p class="card-text card-texto texto-secundario">02 de Mai • 08 de Jun</p>
+                <button class="btn btn-sm btn-outline-secondary">Saiba mais</button>
+              </div>
+            </div>
+            <div class="card card-personalizado">
+              <img data-src="../img/malvadas.jpg" class="card-img-top card-img-topo"
+                alt="Imagem do evento Meninas Malvadas" loading="lazy">
+              <div class="card-body card-corpo">
+                <h5 class="card-title card-titulo">Meninas Malvadas</h5>
+                <p class="card-text card-texto texto-secundario">02 de Mai • 08 de Jun</p>
+                <button class="btn btn-sm btn-outline-secondary">Saiba mais</button>
+              </div>
+            </div>
+            <div class="card card-personalizado">
+              <img data-src="../img/malvadas.jpg" class="card-img-top card-img-topo"
+                alt="Imagem do evento Meninas Malvadas" loading="lazy">
+              <div class="card-body card-corpo">
+                <h5 class="card-title card-titulo">Meninas Malvadas</h5>
+                <p class="card-text card-texto texto-secundario">02 de Mai • 08 de Jun</p>
+                <button class="btn btn-sm btn-outline-secondary">Saiba mais</button>
+              </div>
+            </div>
+          </div>
+          <!-- Botão para rolar para o próximo card -->
+          <button class="botao-carrossel botao-proximo" aria-label="Próximo">&#10095;</button>
+        </div>
+        <!-- Plugin de acessibilidade VLibras -->
+        <div vw class="enabled">
+          <div vw-access-button class="active"></div>
+          <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- =========================
+       Scripts do projeto
+  ========================== -->
+  <script src="../js/eventos.js"></script>
+  <script src="../js/perfil-global.js"></script>
+  <script src="../js/script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <!-- Plugin de acessibilidade VLibras -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+</body>
+
+</html>

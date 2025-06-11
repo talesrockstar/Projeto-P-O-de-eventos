@@ -1,0 +1,657 @@
+/* ========================================= */
+/*          RESET & BASE                     */
+/* ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Cores */
+  --cor-primaria: #FF7551;
+  --cor-primaria-hover: #e05e3d;
+  --cor-fundo: #1F1D2B;
+  --cor-fundo-secundaria: #2c2a3a;
+  --cor-fundo-hover: #3a3848;
+  --cor-texto: #fff;
+  --cor-texto-secundaria: #d1d5db; /* Ajustado para combinar com links antigos */
+  --cor-texto-terciaria: #ccc;
+
+  /* Tamanhos */
+  --largura-barra-lateral: 250px;
+  --espaco-header-mobile: 60px; /* Espaço para o botão menu */
+  --borda-raio-padrao: 0.75rem;
+
+  /* Efeitos */
+  --sombra-padrao: 0 4px 15px rgba(0,0,0,0.6);
+  --sombra-card: 0 6px 20px rgba(0, 0, 0, 0.5);
+  --sombra-hover: 0 12px 28px rgba(255, 117, 81, 0.6);
+  --transicao-padrao: 0.3s ease;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
+  /* Desktop: Margin for sidebar */
+  margin-left: var(--largura-barra-lateral);
+  transition: margin-left var(--transicao-padrao); /* Add transition */
+}
+
+/* =====================================================
+   NOVA BARRA LATERAL
+===================================================== */
+.barra-lateral {
+ 
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: var(--largura-barra-lateral);
+  background-color: var(--cor-fundo);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  color: var(--cor-texto);
+  z-index: 1000;
+  transform: translateX(0); /* Visível por padrão */
+  transition: transform var(--transicao-padrao);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+.barra-lateral span {
+  margin-top: 30px;
+}
+
+/* Marca e título */
+.barra-lateral__marca {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.barra-lateral__titulo {
+  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+}
+
+/* Navegação lateral */
+.barra-lateral__nav {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.barra-lateral__nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.barra-lateral__lista {
+  list-style: none;
+  padding: 1rem 0;
+}
+
+.barra-lateral__item + .barra-lateral__item {
+  margin-top: 1rem;
+}
+
+/* Links de navegação */
+.barra-lateral__link {
+  display: flex;
+  align-items: center;
+  color: var(--cor-texto-secundaria);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border-radius: 0.375rem;
+  transition: background-color var(--transicao-padrao), color var(--transicao-padrao);
+  user-select: none;
+}
+
+.barra-lateral__link:hover,
+.barra-lateral__link:focus {
+  background-color: var(--cor-primaria-hover);
+  color: #f9fafb;
+  outline: none;
+}
+
+.barra-lateral__link--ativo {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto);
+  font-weight: 700;
+}
+
+.barra-lateral__icone {
+  margin-right: 0.75rem;
+  width: 20px;
+  height: 20px;
+}
+
+/* =====================================================
+   NOVO MENU MOBILE (Botão e Overlay)
+===================================================== */
+.botao-menu {
+  display: none; /* Escondido no desktop */
+  position: fixed;
+  top: 1rem;
+  left: 1rem; /* Posicionado à esquerda */
+  z-index: 1100;
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem; /* Tamanho do ícone */
+  line-height: 40px; /* Centralizar ícone */
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.barra-lateral-overlay {
+  display: none; /* Escondido no desktop */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity var(--transicao-padrao);
+}
+
+.barra-lateral-overlay.ativo {
+    display: block;
+    opacity: 1;
+}
+
+/* =====================================================
+   NOVO CABEÇALHO E PESQUISA
+===================================================== */
+.container-pesquisa {
+  margin-left: var(--largura-barra-lateral);
+  padding: 1rem 2rem; /* Padding padrão desktop */
+  background-color: var(--cor-fundo);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  transition: margin-left var(--transicao-padrao), padding-left var(--transicao-padrao);
+}
+
+.container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem; /* Espaço entre pesquisa e usuário */
+}
+
+.pesquisa {
+  flex-grow: 1;
+}
+
+.controle-formulario {
+  width: 100%; /* Ocupar espaço disponível */
+  background-color: var(--cor-fundo-secundaria);
+  border: none;
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  color: var(--cor-texto);
+  font-size: 1rem;
+  transition: background-color var(--transicao-padrao);
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+}
+
+.controle-formulario::placeholder {
+  color: #808191;
+}
+
+.controle-formulario:focus {
+  background-color: var(--cor-fundo-hover);
+  color: var(--cor-texto);
+  outline: none;
+}
+
+/* =====================================================
+   NOVO CONTAINER USUÁRIO
+===================================================== */
+.container-usuario {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.container-usuario a {
+  color: white;
+  text-decoration: none;
+}
+
+.avatar-usuario {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nome-usuario {
+  font-weight: 600;
+  color: var(--cor-texto);
+  font-size: 0.95rem;
+}
+
+/* =====================================================
+   CONTEÚDO PRINCIPAL (Adaptado)
+===================================================== */
+main { /* Ou .conteudo-principal */
+  /* AJUSTE DESKTOP: Removido margin-left redundante */
+  /* margin-left: var(--largura-barra-lateral); */
+  padding: 2rem; /* AJUSTE DESKTOP: Reduzido padding horizontal */
+  background-color: var(--cor-fundo);
+  min-height: calc(100vh - 70px); /* Ajustar altura se header for sticky */
+  transition: margin-left var(--transicao-padrao), padding-left var(--transicao-padrao);
+  /* Manter estilos de layout desktop daqui */
+  display: flex;
+  flex-direction: row;
+  gap: 2rem; /* AJUSTE DESKTOP: Gap entre colunas mantido ou ajustado se necessário */
+}
+
+.resumoUser {
+  flex-basis: 30%;
+  flex-shrink: 0;
+  order: initial;
+  margin-top: 0;
+}
+
+.ladodireitodapage {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  order: initial;
+  width: auto;
+  margin-bottom: 0;
+}
+
+/* Titles - Desktop */
+.resumoUser h1 {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--cor-texto);
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.resumoUser h2 {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--cor-texto);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.seutempoconosco h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--cor-texto);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Tempo Section - Desktop */
+.tempo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.tempo_total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 25px solid var(--cor-primaria);
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  flex-direction: column;
+}
+
+.tempo_total h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--cor-texto);
+}
+
+/* Informações Section - Desktop */
+.informacoes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.informacoes > div {
+  border-radius: 16px;
+  background-color: var(--cor-primaria);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 110px;
+}
+
+.informacoes h2 {
+  color: #f8b7a5; /* Manter ou usar variável */
+  font-size: 16px;
+  margin: 0 0 10px 0;
+  font-weight: normal;
+}
+
+.quantidade_FP,
+.quantidade_FO,
+.quantidade_C,
+.quantidade_TF {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--cor-texto);
+  margin: 0;
+  line-height: 1;
+}
+
+/* Histórico Section - Desktop */
+.historico {
+  width: 100%;
+  overflow: visible;
+}
+
+.historico ul {
+  list-style: none;
+  padding: 0 0 15px 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  overflow-x: initial;
+  white-space: initial;
+  scrollbar-width: initial;
+}
+
+.historico ul::-webkit-scrollbar {
+  display: none;
+}
+
+.historico button {
+  background-color: #32303c; /* Manter ou usar variável */
+  color: var(--cor-texto);
+  border: none;
+  padding: 15px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-block;
+  flex-shrink: 0;
+  min-width: 150px;
+  text-align: center;
+}
+
+.historico span[class="2024"] {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-top: 10px;
+  color: #aaa; /* Manter ou usar variável */
+  font-size: 14px;
+}
+
+/* ========================================= */
+/*          MEDIA QUERIES (TABLET)           */
+/* ========================================= */
+@media (max-width: 1024px) {
+  body {
+    margin-left: 0;
+  }
+
+  .barra-lateral {
+    transform: translateX(-100%); /* Escondida por padrão */
+  }
+
+  .barra-lateral.ativo {
+    transform: translateX(0); /* Mostra quando ativa */
+    box-shadow: var(--sombra-padrao);
+  }
+
+  .botao-menu {
+    display: block; /* Mostra o botão */
+  }
+
+  .barra-lateral-overlay.ativo {
+    display: block;
+    opacity: 1;
+  }
+
+  .container-pesquisa {
+    margin-left: 0;
+    padding: 0.75rem 1rem;
+    /* AJUSTE MOBILE: Adiciona padding à esquerda para não sobrepor botão */
+    padding-left: var(--espaco-header-mobile);
+  }
+
+  main { /* Ou .conteudo-principal */
+    margin-left: 0;
+    padding: 1.5rem 1rem;
+    /* AJUSTE MOBILE: Adiciona padding à esquerda para não sobrepor botão */
+    padding-left: var(--espaco-header-mobile);
+    /* Manter estilos responsivos daqui */
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Reorder sections visually */
+  .resumoUser {
+    order: 2;
+    margin-top: 30px;
+    flex-basis: auto;
+  }
+
+  .ladodireitodapage {
+    order: 1;
+    width: 100%;
+  }
+
+  /* Hide/Adjust Titles */
+  .resumoUser h1 {
+     display: none;
+  }
+
+  .resumoUser h2 {
+     display: block;
+     text-align: center;
+     font-size: 22px;
+     margin-bottom: 15px;
+  }
+
+  .seutempoconosco h1 {
+    text-align: center;
+  }
+
+  /* Adjust Info Cards */
+  .informacoes {
+    max-width: none;
+    gap: 15px;
+  }
+
+  /* History - Horizontal Scroll */
+  .historico ul {
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: flex-start;
+    padding-left: 5px;
+    padding-right: 5px;
+    flex-wrap: nowrap;
+    scrollbar-width: thin;
+    scrollbar-color: #4f4f5e var(--cor-fundo);
+  }
+
+  .historico ul::-webkit-scrollbar {
+    display: block;
+    height: 8px;
+  }
+
+  .historico ul::-webkit-scrollbar-track {
+    background: var(--cor-fundo);
+    border-radius: 4px;
+  }
+
+  .historico ul::-webkit-scrollbar-thumb {
+    background-color: #4f4f5e;
+    border-radius: 4px;
+  }
+
+  .historico button {
+     flex-grow: 0;
+     flex-basis: auto;
+     min-width: 150px;
+  }
+
+  .historico span[class="2024"] {
+     display: none;
+  }
+}
+
+/* ========================================= */
+/*          MEDIA QUERIES (MOBILE)           */
+/* ========================================= */
+@media (max-width: 767px) {
+  body.menu-aberto {
+      overflow: hidden; /* Impede rolagem do body quando menu aberto */
+  }
+
+  /* .container-pesquisa { */
+    /* Header fica fixo? Se sim: */
+    /* position: fixed; */
+    /* top: 0; */
+    /* left: 0; */
+    /* width: 100%; */
+    /* z-index: 900; */
+    /* Se header fixo, adicionar padding-top ao body/main */
+    /* body { padding-top: 60px; } */
+  
+
+  .container-header {
+      gap: 0.5rem;
+  }
+
+  .controle-formulario {
+      font-size: 0.9rem;
+      padding: 0.5rem 0.8rem;
+  }
+
+  .nome-usuario {
+      display: none; /* Esconder nome em telas pequenas */
+  }
+
+  .ladodireitodapage {
+    margin-bottom: 30px;
+  }
+
+  .seutempoconosco h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .tempo_total {
+    width: 160px;
+    height: 160px;
+    border-width: 20px;
+  }
+
+  .tempo_total h2 {
+    font-size: 28px;
+  }
+
+  .informacoes {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .informacoes > div {
+    min-height: 90px;
+    padding: 12px;
+  }
+
+  .informacoes h2 {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .quantidade_FP,
+  .quantidade_FO,
+  .quantidade_C,
+  .quantidade_TF {
+    font-size: 26px;
+  }
+
+  .resumoUser h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .historico button {
+    padding: 12px 20px;
+    font-size: 13px;
+    min-width: 130px;
+  }
+}
+
+/* ========================================= */
+/*      MEDIA QUERIES (SMALL MOBILE)         */
+/* ========================================= */
+@media (max-width: 375px) {
+  .avatar-usuario {
+      width: 32px;
+      height: 32px;
+  }
+
+  .tempo_total {
+    width: 140px;
+    height: 140px;
+    border-width: 15px;
+  }
+
+  .tempo_total h2 {
+    font-size: 24px;
+  }
+
+  .informacoes h2 {
+    font-size: 12px;
+  }
+
+  .quantidade_FP,
+  .quantidade_FO,
+  .quantidade_C,
+  .quantidade_TF {
+    font-size: 22px;
+  }
+
+  .historico button {
+    padding: 10px 15px;
+    font-size: 12px;
+    min-width: 110px;
+  }
+}
+

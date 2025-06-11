@@ -1,0 +1,714 @@
+/* =====================================================
+   RESET & BASE
+   Reset de estilos e variáveis globais para o projeto
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Cores principais do tema */
+  --cor-primaria: #FF7551;
+  --cor-primaria-hover: #e05e3d;
+  --cor-fundo: #1F1D2B;
+  --cor-fundo-secundaria: #2c2a3a;
+  --cor-fundo-hover: #3a3848;
+  --cor-texto: #fff;
+  --cor-texto-terciaria: #ccc;
+
+  /* Tamanhos e espaçamentos */
+  --largura-barra-lateral: 250px;
+  --borda-raio-padrao: 0.75rem;
+
+  /* Efeitos visuais */
+  --sombra-padrao: 0 4px 15px rgba(0,0,0,0.6);
+  --sombra-card: 0 6px 20px rgba(0, 0, 0, 0.5);
+  --sombra-hover: 0 12px 28px rgba(255, 117, 81, 0.6);
+  --transicao-padrao: 0.3s ease;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   UTILITÁRIOS E ACESSIBILIDADE
+   Estilos para acessibilidade e elementos utilitários
+===================================================== */
+
+/* Esconde elementos visualmente, mantendo para leitores de tela */
+.visualmente-escondido,
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Link de pular para o conteúdo principal (acessibilidade) */
+.pular-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--cor-primaria);
+  color: white;
+  padding: 8px;
+  z-index: 1200;
+  transition: top 0.3s;
+}
+
+.pular-link:focus {
+  top: 0;
+}
+
+/* =====================================================
+   BARRA LATERAL
+   Estilização da navegação lateral do sistema
+===================================================== */
+.barra-lateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: var(--largura-barra-lateral);
+  background-color: var(--cor-fundo);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  color: var(--cor-texto);
+  z-index: 1000;
+  transition: transform var(--transicao-padrao);
+}
+
+/* Marca e título */
+.barra-lateral__marca {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.barra-lateral__titulo {
+  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+}
+
+/* Navegação lateral */
+.barra-lateral__nav {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.barra-lateral__nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.barra-lateral__lista {
+  list-style: none;
+  padding: 1rem 0;
+}
+
+.barra-lateral__item + .barra-lateral__item {
+  margin-top: 1rem;
+}
+
+/* Links de navegação */
+.barra-lateral__link {
+  display: flex;
+  align-items: center;
+  color: var(--cor-texto-secundaria);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border-radius: 0.375rem;
+  transition: background-color var(--transicao-padrao), color var(--transicao-padrao);
+  user-select: none;
+}
+
+.barra-lateral__link:hover,
+.barra-lateral__link:focus {
+  background-color: var(--cor-primaria-hover);
+  color: #f9fafb;
+  outline: none;
+}
+
+.barra-lateral__link--ativo {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto);
+  font-weight: 700;
+}
+
+.barra-lateral__icone {
+  margin-right: 0.75rem;
+  width: 20px;
+  height: 20px;
+}
+
+/* =====================================================
+   MENU MOBILE
+   Estilos para o menu hamburguer e overlay mobile
+===================================================== */
+.botao-menu {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1100;
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.barra-lateral-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity var(--transicao-padrao);
+}
+
+/* =====================================================
+   CABEÇALHO E PESQUISA
+   Estilos para o header e campo de busca
+===================================================== */
+.container-pesquisa {
+  margin-left: var(--largura-barra-lateral);
+  padding: 1rem 2rem;
+  background-color: var(--cor-fundo);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  transition: margin-left var(--transicao-padrao);
+}
+
+.container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.pesquisa {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.controle-formulario {
+  width: 50%;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--cor-fundo-secundaria);
+  border: none;
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  color: var(--cor-texto);
+  font-size: 1rem;
+  transition: background-color var(--transicao-padrao);
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+}
+
+.controle-formulario::placeholder {
+  color: #808191;
+}
+
+.controle-formulario:focus {
+  background-color: var(--cor-fundo-hover);
+  color: var(--cor-texto);
+  outline: none;
+}
+
+/* =====================================================
+   AUTENTICAÇÃO
+   Botões de cadastro e login
+===================================================== */
+.container-autenticacao {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.botao-cadastro,
+.botao-login {
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.botao-cadastro {
+  background-color: var(--cor-primaria);
+  color: white;
+}
+
+.botao-cadastro:hover,
+.botao-cadastro:focus {
+  background-color: var(--cor-primaria-hover);
+}
+
+.botao-login {
+  background-color: transparent;
+  color: var(--cor-texto);
+  border: 1.5px solid var(--cor-texto-secundaria);
+}
+
+.botao-login:hover,
+.botao-login:focus {
+  background-color: var(--cor-fundo-secundaria);
+  border-color: var(--cor-texto);
+}
+
+/* =====================================================
+   USUÁRIO LOGADO
+   Estilos para avatar e nome do usuário autenticado
+===================================================== */
+.container-usuario {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.container-usuario a {
+  text-decoration: none;
+  color: white;
+}
+
+.avatar-usuario {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nome-usuario {
+  font-weight: 600;
+  color: var(--cor-texto);
+  font-size: 0.95rem;
+}
+
+/* =====================================================
+   CONTEÚDO PRINCIPAL
+   Área central da aplicação
+===================================================== */
+.conteudo-principal {
+  margin-left: var(--largura-barra-lateral);
+  padding: 2rem 3rem;
+  background-color: var(--cor-fundo);
+  min-height: 100vh;
+  transition: margin-left var(--transicao-padrao);
+}
+
+.titulo-evento {
+  color: var(--cor-texto);
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* =====================================================
+   CARROSSEL PRINCIPAL (IMAGEM GRANDE)
+   Estilos para o carrossel de imagens em destaque
+===================================================== */
+.carrossel,
+.carousel {
+  max-width: 1120px;
+  margin: 2rem auto;
+  border-radius: var(--borda-raio-padrao);
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  background-color: var(--cor-fundo-secundaria);
+}
+
+.img-uniforme {
+  height: 30rem;
+  object-fit: cover;
+  border-radius: var(--borda-raio-padrao);
+  box-shadow: var(--sombra-padrao);
+}
+
+/* Foco para controles do carrossel */
+.carrossel:focus-visible,
+.carousel:focus-visible,
+.carrossel-controle-anterior:focus-visible,
+.carousel-control-prev:focus-visible,
+.carrossel-controle-proximo:focus-visible,
+.carousel-control-next:focus-visible,
+.carrossel-indicadores button:focus-visible,
+.carousel-indicators button:focus-visible {
+  outline: var(--foco-visivel);
+}
+
+/* Indicadores de navegação do carrossel */
+.carousel-indicators {
+  z-index: 15;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  border-radius: 50%;
+  padding: 10px;
+}
+
+/* =====================================================
+   CARROSSEL DE CARDS (SEÇÃO DESTAQUES, ETC)
+   Estilos para o carrossel customizado de cards
+===================================================== */
+.album {
+  background-color: var(--cor-fundo);
+}
+
+.secao-carrossel-cards {
+  background-color: var(--cor-fundo);
+  padding: 2rem 2.5rem;
+  position: relative;
+  color: white;
+  user-select: none;
+}
+
+.carrossel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.carrossel-cards {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1.25rem;
+  padding: 1rem 0;
+}
+
+.carrossel-cards::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* Botões laterais para navegar no carrossel de cards */
+.botao-carrossel {
+  background-color: transparent;
+  color: var(--cor-texto);
+  border: none;
+  font-size: 2.25rem;
+  cursor: pointer;
+  z-index: 5;
+  padding: 0 1rem;
+  transition: color var(--transicao-padrao);
+  user-select: none;
+}
+
+.botao-carrossel:hover {
+  color: var(--cor-primaria);
+}
+
+/* =====================================================
+   CARD PERSONALIZADO (USADO EM LISTAS/CARROSSEL)
+   Estilos para os cards de eventos
+===================================================== */
+.card-personalizado {
+  min-width: 250px;
+  max-width: 250px;
+  background-color: var(--cor-fundo-secundaria);
+  border: none;
+  color: white;
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  box-shadow: var(--sombra-card);
+  transition: transform var(--transicao-padrao);
+  cursor: pointer;
+}
+
+.card-personalizado:hover,
+.card-personalizado:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-hover);
+}
+
+/* Estilização de cards do Bootstrap adaptados */
+.album .card {
+  background-color: var(--cor-fundo-secundaria);
+  border-radius: var(--borda-raio-padrao);
+  box-shadow: 0 10px 8px rgba(0, 0, 0, 0.6);
+  transition: transform var(--transicao-padrao), box-shadow var(--transicao-padrao);
+  cursor: pointer;
+}
+
+/* Conteúdo e imagem do card */
+.card-corpo,
+.card-body,
+.album .card-corpo {
+  color: var(--cor-texto);
+  padding: 1rem 1.25rem;
+}
+
+.card-img-topo,
+.card-img-top,
+.album .card-img-topo {
+  border-top-left-radius: var(--borda-raio-padrao);
+  border-top-right-radius: var(--borda-raio-padrao);
+  object-fit: cover;
+  height: 160px;
+  width: 100%;
+}
+
+/* Tipografia nos cards */
+.texto-secundario,
+.card-text {
+  color: var(--cor-texto-terciaria);
+  font-size: 0.85rem;
+  font-weight: 400;
+  margin-top: 0.25rem;
+}
+
+.card-title {
+  color: var(--cor-texto);
+  font-weight: 600;
+}
+
+/* Botão nos cards */
+.album .btn-outline-secondary {
+  border: 1.8px solid var(--cor-primaria);
+  color: var(--cor-primaria);
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color var(--transicao-padrao), color var(--transicao-padrao);
+}
+
+.album .btn-outline-secondary:hover {
+  background-color: var(--cor-primaria);
+  color: white;
+}
+
+.album .btn-outline-secondary:focus-visible {
+  outline: var(--foco-visivel);
+}
+
+/* =====================================================
+   RESPONSIVIDADE: TABLETS E DISPOSITIVOS MÉDIOS
+   Ajustes para telas médias (até 992px)
+===================================================== */
+@media (max-width: 992px) {
+  :root {
+    --largura-barra-lateral: 220px; /* Reduz barra lateral */
+  }
+
+  .conteudo-principal {
+    padding: 1.5rem 2rem;
+  }
+
+  .controle-formulario {
+    width: 70%;
+  }
+
+  .img-uniforme {
+    height: 25rem;
+  }
+
+  .titulo-evento {
+    font-size: 1.75rem;
+  }
+
+  .secao-carrossel-cards {
+    padding: 1.5rem;
+  }
+
+  .card-personalizado {
+    min-width: 220px;
+    max-width: 220px;
+  }
+}
+
+/* =====================================================
+   RESPONSIVIDADE: TABLETS PEQUENOS / MÓVEIS GRANDES
+   Ajustes para telas até 768px
+===================================================== */
+@media (max-width: 768px) {
+  :root {
+    --largura-barra-lateral: 0; /* Barra lateral some da tela */
+  }
+
+  /* Esconde a barra lateral por padrão */
+  .barra-lateral {
+    transform: translateX(-100%);
+    width: 280px;
+  }
+
+  /* Mostra a barra lateral quando ativa (via JS) */
+  .barra-lateral.ativo {
+    transform: translateX(0);
+  }
+
+  /* Mostra botão de menu móvel */
+  .botao-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Exibe o overlay da barra lateral ao abrir o menu */
+  .barra-lateral-overlay.ativo {
+    display: block;
+    opacity: 1;
+  }
+
+  /* Ajusta containers ao remover a barra lateral */
+  .container-pesquisa,
+  .conteudo-principal {
+    margin-left: 0;
+  }
+
+  .container-pesquisa {
+    padding: 1rem;
+  }
+
+  .container-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pesquisa {
+    width: 100%;
+  }
+
+  .controle-formulario {
+    width: 100%;
+  }
+
+  .conteudo-principal {
+    padding: 1rem 1.5rem;
+  }
+
+  .img-uniforme {
+    height: 20rem;
+  }
+
+  .carrossel,
+  .carousel {
+    margin: 1.5rem auto;
+  }
+
+  .secao-carrossel-cards {
+    padding: 1rem;
+  }
+
+  .botao-carrossel {
+    font-size: 1.75rem;
+    padding: 0 0.5rem;
+  }
+}
+
+/* =====================================================
+   RESPONSIVIDADE: DISPOSITIVOS MÓVEIS COMUNS
+   Ajustes para telas até 576px
+===================================================== */
+@media (max-width: 576px) {
+  .controle-formulario {
+    width: 100%;
+  }
+
+  .conteudo-principal {
+    padding: 1rem;
+  }
+
+  .titulo-evento {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .img-uniforme {
+    height: 15rem;
+  }
+
+  .carrossel,
+  .carousel {
+    margin: 1rem auto;
+  }
+
+  .secao-carrossel-cards {
+    padding: 0.5rem;
+  }
+
+  .card-personalizado {
+    min-width: 200px;
+    max-width: 200px;
+  }
+
+  .album .card-corpo,
+  .album .card-body {
+    padding: 0.75rem 1rem;
+  }
+
+  .album .btn-outline-secondary {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .botao-carrossel {
+    font-size: 1.5rem;
+    padding: 0 0.25rem;
+  }
+
+  .botao-cadastro,
+  .botao-login {
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* =====================================================
+   RESPONSIVIDADE: DISPOSITIVOS MUITO PEQUENOS
+   Ajustes para telas até 375px
+===================================================== */
+@media (max-width: 375px) {
+  .card-personalizado {
+    min-width: 180px;
+    max-width: 180px;
+  }
+
+  .img-uniforme {
+    height: 12rem;
+  }
+
+  .album .card-img-topo,
+  .album .card-img-top {
+    height: 140px;
+  }
+
+  .container-autenticacao {
+    gap: 0.5rem;
+  }
+
+  .botao-cadastro,
+  .botao-login {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}

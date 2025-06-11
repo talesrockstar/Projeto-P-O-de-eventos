@@ -1,0 +1,377 @@
+@import url(global.css);
+
+
+body {
+    background-image: url('../img/background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-family: Poppins, 'Inter', sans-serif;
+    font-size: 1.6rem;
+}
+.right-section a {
+    text-decoration: none;
+}
+
+.right-section span {
+    color: white;
+    font-size: 16px;
+}
+
+.left-section span { 
+    color: white;
+}
+
+.left-section svg {
+    margin-bottom: 5px;
+    color: white;
+}
+
+.notification-dot {
+    position: absolute;
+    top: 13px;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+
+
+.tela_eventos {
+    width: 100%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.texto_tela {
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.texto_tela h1 {
+    font-size: 3rem;
+    color: white;
+}
+
+.texto_tela h2 {
+    font-size: 2rem;
+    color: white;
+}
+
+
+
+.filtros {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 73.3rem;
+    height: 5rem;
+    margin-top: 3rem;
+}
+
+.filtros option {
+    color: black
+}
+
+
+.futuros {
+    margin-top: 3rem;
+}
+
+.andamento {
+    margin-top: 3rem;
+    font-size: 1.4rem;
+
+}
+
+.realizados {
+    margin-top: 3rem;
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+}
+
+.carrossel1 {
+    margin-top: 3rem;
+    display: flex;
+    gap: 3rem;
+    overflow-y: hidden;
+    overflow-x: auto;
+    align-items: center;
+}
+
+.carrossel2 {
+    overflow-y: hidden;
+    margin-top: 3rem;
+    display: flex;
+    gap: 3rem;
+    overflow-x: auto;
+}
+
+.carrossel3 {
+    overflow-y: hidden;
+    margin-top: 3rem;
+    display: flex;
+    gap: 3rem;
+    overflow-x: auto;
+
+}
+
+ /* ::-webkit-scrollbar{
+    background-color: #1F1D2B;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 3px;
+    height: 1px;
+}  */
+
+.carrossel1::-webkit-scrollbar,
+.carrossel2::-webkit-scrollbar,
+.carrossel3::-webkit-scrollbar {
+    background-color: #1F1D2B;
+    height: 6px; 
+    width: 100%; 
+}
+
+.carrossel1::-webkit-scrollbar-thumb,
+.carrossel2::-webkit-scrollbar-thumb,
+.carrossel3::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.35);
+    opacity: 0.5; 
+    border-radius: 3px;
+    height: 6px;  
+    width: 5px;   
+}
+
+.card {
+    min-width: 25.9rem;
+    max-width: 25.9rem;
+    height: 31.3rem;
+    border-radius: 2rem;
+    background-color: #252836;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.card img {
+    border-radius: 2rem 2rem 0 0;
+}
+
+.card-body {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#Local {
+    font-size: 1.3rem;
+    color: #A6A6A6;
+    line-height: 1.3rem;
+}
+
+#Nome_evento {
+    font-size: 1.8rem;
+    color: white;
+    line-height: 2rem;
+}
+
+#Data_evento {
+    margin-top: -1rem;
+    font-size: 1.4rem;
+    color: #808191;
+}
+
+span {
+    color: #FF7551;
+}
+
+@media only screen and (min-width: 744px) and (max-width: 1280px) {
+    
+    body{
+        background-color: #1F1D2B;
+        background-image: none;
+    }
+    
+    header {
+        width: 100%;
+        align-items: center;
+        margin: 0;
+    }
+
+    .cabeca {
+        width: 100%;
+        padding-right: 4;
+    }
+
+    .perfil {
+        width: 12rem;
+        height: 3rem;
+    }
+
+    
+
+    .tela_eventos {
+        max-width: 100%;
+        margin: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .filtros {
+        width: 100%;
+        height: 5rem;
+        margin-top: 3rem;
+        gap: 1rem;
+    }
+
+    .carrossel1,
+    .carrossel2,        
+    .carrossel3 {
+        height: max-content;
+    }
+
+
+}
+
+@media only screen and (min-width: 320px) and (max-width: 743px) {
+    body {
+        width: 100%;
+        background-color: #1F1D2B;
+        background-image: none;
+    }
+
+    header {
+        width: 100%;
+        align-items: center;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .cabeca {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        row-wrap: wrap;
+        padding-right: 2rem;
+        padding-left: 1rem;
+    }
+
+    .Plannea h2 {
+        font-size: 1.2rem;
+    }
+
+    #fotodeperfil {
+        width: 2.3rem;
+        height: 2.3rem;
+    }
+
+
+    .perfil {
+        width: fit-content;
+        height: 2.7rem;
+        gap: 0.5rem;
+    }
+
+    .informacoes_perfil {
+        width: fit-content;
+        height: 2.7rem;
+        gap: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    .notification_dot {
+
+    }
+
+    .filtros {
+        width: auto;
+        height: auto;
+        font-size: 1.2rem;
+        gap: 1rem;
+        margin: 0;
+        padding-top: 1rem;
+
+    }
+
+    .tela_eventos {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .texto_tela {
+        align-items: center
+    }
+
+    .texto_tela h1 {
+        width: auto;
+        font-size: 3rem;
+        color: white;
+        align-items: center;
+    }
+
+    .texto_tela h2 {
+        font-size: 1.8rem;
+        color: white;
+        width: auto;
+        font-size: 2.4rem;
+        color: white;
+        align-items: center;
+    }
+
+    
+
+
+    .futuros h1 {
+        
+        font-size: 2.4rem;
+        color: white;
+        width:fit-content
+    }
+
+    .andamento h1 {
+        font-size: 2.4rem;
+        color: white;
+        width: fit-content;
+    }
+    .realizados h1 {
+        font-size: 2.4rem;
+        color: white;
+        width: fit-content;
+    }
+
+     .carrossel1, 
+    .carrossel2,
+    .carrossel3 {
+        gap: 1rem;
+        width: auto;
+        align-items: center;
+        height: auto;
+    }
+
+    .card {
+        min-width: 20.7rem;
+        max-width: 20.7rem;
+    }
+
+
+}
+
+   

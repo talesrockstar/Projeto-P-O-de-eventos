@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <title>Página de Criação de Eventos</title>
+  <link rel="stylesheet" href="../css/Criar_Evento.css">
+  <link rel="stylesheet" href="../css/global.css">
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <div class="left-section">
+        <a href="index-logado.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-left"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+          </svg>
+        </a>
+        <span class="logo">Plannea</span>
+      </div>
+
+      <div class="right-section">
+        <img class="avatar" src="../img/FOTO_PERFIL.png" alt="avatar">
+        <a href="pagina-de-perfil.html">
+        <span class="nome_do_avatar">Tales rodrigues</span>
+        </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Criar Evento</h1>
+    <div class="container caixa-destaque">
+      <h2>1. Informações Básicas</h2>
+      <form id="every-form">
+
+        <div class="caixa-destaque">
+          <label for="every-title" class="form-label">Título do Evento</label>
+          <input type="text" class="every-title" id="every-title" placeholder="Digite o título do evento">
+        </div>
+
+        <div class="caixa-destaque">
+          <label for="every-image">Imagem do Evento</label>
+          <div class="quadrado">
+            <svg width="70" height="70" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="3" width="18" height="18" rx="2" stroke="white" stroke-width="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" fill="white" />
+              <path d="M21 15L16 10L5 21" stroke="white" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span class="plus-icon">+</span>
+          </div>
+          <div>
+            <input type="file" id="every-image" accept="image/*">
+            <img id="preview" style="display: none; max-width: 100%; margin-top: 10px;" />
+          </div>
+        </div>
+
+        <div class="linha-flex">
+          <div>
+            <label for="tipo">Tipo de Evento</label>
+            <select id="tipo" name="tipo">
+              <option value="Show">Show</option>
+              <option value="Peça">Peça</option>
+              <option value="Musical">Musical</option>
+              <option value="Stand-UP">Stand-UP</option>
+              <option value="Infantil">Infantil</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label for="participantes" class="form-label">Número Total de Participantes</label>
+            <input type="number" class="participantes" id="participantes"
+              placeholder="Digite o número de participantes">
+          </div>
+
+        </div>
+
+        <div class="caixa-destaque">
+          <h2> 2. Descrição Detalhada </h2>
+          <label>Conte os detalhes do seu evento</label>
+          <textarea id="every-description" placeholder="Digite a descrição do seu evento" required></textarea>
+        </div>
+
+        <h2>3. Data e horário</h2>
+        <div class="linha-flex">
+          <div>
+            <label for="inicio">Data e Hora de Início</label>
+            <input type="datetime-local" id="inicio" name="inicio">
+          </div>
+
+          <div class="col-md-6">
+            <label for="fim" class="form-label">Data e Hora de Término</label>
+            <input type="datetime-local" class="form-label" id="Data e Hora de Término">
+          </div>
+        </div>
+
+        <h2>4. Local do evento</h2>
+        <div class="caixa-destaque">
+          <label for="every-location" class="form-label">Informe o endereço</label>
+          <input type="text" class="form-label" id="every-location" placeholder="Digite o endereço do evento">
+
+          <label for="nome-location" class="form-label">Nome do local</label>
+          <input type="text" class="form-label" id="nome-location" placeholder="Digite o nome do local">
+
+          <label for="CEP-location" class="form-label">CEP</label>
+          <input type="text" class="form-label" id="CEP-location" placeholder="______-___">
+
+          <label for="every-city" class="form-label">Cidade</label>
+          <input type="text" class="form-label" id="every-city" placeholder="Digite o nome da Cidade">
+
+          <label for="every-estado" class="form-label">Estado</label>
+          <input type="text" class="form-label" id="every-estado" placeholder="Digite o nome do Estado">
+        </div>
+
+        <div class="buttons caixa-destaque">
+          <button type="reset" style="background-color: #666666; color: #ffffff;">Cancelar Evento</button>
+          <button type="submit">Criar Evento</button>
+        </div>
+
+        <div class="mensagem erro caixa-destaque" style="display: none;">
+          <p>Erro ao criar o evento. Tente Novamente</p>
+          <button type="button" class="close">Fechar</button>
+        </div>
+
+        <div class="mensagem sucesso caixa-destaque" style="display: none;">
+          <p>Evento criado com sucesso</p>
+          <button type="button" class="close">Fechar</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+  <script src="../js/Criar_Evento.js"></script>
+  <script src="../js/perfil-global.js"></script>
+</body>
+
+</html>

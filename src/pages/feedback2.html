@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página de feedback</title>
+  <title>Resposta do Feedback</title>
   <link rel="stylesheet" href="../css/feedback.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -24,63 +24,56 @@
 
       <div class="right-section">
         <img class="avatar" src="../img/FOTO_PERFIL.png" alt="avatar">
-        <a href="pagina-de-perfil.html">
-        Tales rodrigues
-        </a>
+        <a href="pagina-de-perfil.html">Tales rodrigues</a>
       </div>
     </div>
   </header>
 
-
-
   <main>
     <div class="conteudo">
-
       <div class="feedback">
         <div class="titulo">
-          <h1>Feedback</h1>
+          <h1>Feedback Enviado</h1>
         </div>
         <div class="formulario">
-          <form>
-            <div class="mb-4">
-              <label for="nome">Nome</label>
-              <input type="text" id="nome" placeholder="Digite seu nome">
+          <div class="resposta-container">
+            <div class="resposta-item">
+              <h3>Nome:</h3>
+              <div class="resposta-valor" id="resposta-nome"></div>
             </div>
 
-            <div class="mb-4">
-              <label for="email">Email</label>
-              <input type="email" id="email" placeholder="Digite seu email">
+            <div class="resposta-item">
+              <h3>Email:</h3>
+              <div class="resposta-valor" id="resposta-email"></div>
             </div>
 
-            <div class="mb-5">
-              <label class="form-label">Escolha seu nível de satisfação:</label>
-              <div class="nivel">
-                <span class="fa fa-star" data-index="1"></span>
-                <span class="fa fa-star" data-index="2"></span>
-                <span class="fa fa-star" data-index="3"></span>
-                <span class="fa fa-star" data-index="4"></span>
-                <span class="fa fa-star" data-index="5"></span>
+            <div class="resposta-item">
+              <h3>Nível de satisfação:</h3>
+              <div class="nivel-resposta" id="resposta-nivel">
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
               </div>
-              <input type="hidden" id="nivel" name="nivel" value="0">
             </div>
 
-            <div class="mb-3">
-              <textarea id="comentario" rows="4" placeholder="Adicione um comentário..."></textarea>
+            <div class="resposta-item">
+              <h3>Comentário:</h3>
+              <div class="resposta-valor" id="resposta-comentario"></div>
             </div>
 
             <div class="botoes">
-              <button type="submit" id="cancelar">Cancelar</button>
-              <button type="submit" id="enviar">Enviar</button>
+              <button type="button" id="voltar">Voltar</button>
             </div>
-          </form>
+          </div>
         </div>
       </div>
       <div class="infos">
         <img src="../img/Mauricio capa.svg" alt="Imagem descritiva">
         <div class="texto">
-          <h1 class="nome_do_evento">Maurício Manieri - Tour Classics 2025</h1>
-          <p class="descricao_do_evento">Maurício Manieri apresenta superprodução “Classics” pela primeira vez em Goiânia. Em comemoração aos seus 25 anos de carreira, Maurício Manieri desembarca em Goiânia no dia 16 de maio e se propõe a levar o público a uma jornada emocional por meio de suas canções icônicas e sucessos atemporais.
-</p>
+          <h1>Maurício Manieri - Tour Classics 2025</h1>
+          <p>Maurício Manieri apresenta superprodução “Classics” pela primeira vez em Goiânia. Em comemoração aos seus 25 anos de carreira, Maurício Manieri desembarca em Goiânia no dia 16 de maio e se propõe a levar o público a uma jornada emocional por meio de suas canções icônicas e sucessos atemporais. </p>
         </div>
       </div>
     </div>
@@ -95,7 +88,7 @@
   <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');
   </script>
-  <script src="../js/feedback.js"></script>
+  <script src="../js/feedback2.js"></script>
   <script src="../js/perfil-global.js"></script>
 </body> 
 </html>
