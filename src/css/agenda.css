@@ -10,73 +10,27 @@ body {
     font-size: 1.6rem;
 }
 
-header {
-    height: 9.5rem;
-    width: 100%;
-}
-
-.cabeca {
-    padding-right: 3rem;
-    padding-left: 3rem;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
-
-.Plannea h2 {
+.right-section span {
     color: white;
-    margin: 0;
+    font-size: 16px;
 }
 
-.Plannea a {
-    text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.informacoes_perfil {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: fit-content;
-    height: 3.2rem;
-    gap: 1.5rem;
-}
-
-.perfil {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-}
-
-.perfil h5 {
-    text-wrap: nowrap;
-}
-
-#fotodeperfil {
-    width: 3.2rem;
-    height: 3.2rem;
-    border-radius: 50%;
-}
-
-#sino_notificacao {
-    width: 2.4rem;
-    height: 2rem;
+.left-section span { 
     color: white;
 }
 
-.notification_dot {
-    margin-left: -2rem;
-    margin-top: -1rem;
-    width: 1rem;
-    height: 1rem;
-    background-color: #ff0000;
+.left-section svg {
+    margin-bottom: 5px;
+    color: white;
+}
+
+.notification-dot {
+    position: absolute;
+    top: 13px;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: red;
     border-radius: 50%;
 }
 
@@ -86,10 +40,7 @@ main {
     width: 100%;
 }
 
-main h1 {
-    font-size: 2.8rem;
-    color: white;
-}
+
 
 .tela_eventos {
     width: 100%;
@@ -105,12 +56,12 @@ main h1 {
 }
 
 .texto_tela h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     color: white;
 }
 
 .texto_tela h2 {
-    font-size: 2.8rem;
+    font-size: 2rem;
     color: white;
 }
 

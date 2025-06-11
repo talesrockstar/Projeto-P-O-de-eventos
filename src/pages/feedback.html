@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página de feedback</title>
-  <link rel="stylesheet" href="src/css/feedback.css">
+  <link rel="stylesheet" href="../css/feedback.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -14,14 +14,16 @@
   <header>
     <div class="header">
       <div class="left-section">
+        <a href="index-logado.html">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
         </svg>
+        </a>
         <span class="logo">Plannea</span>
       </div>
 
       <div class="right-section">
-        <img class="avatar" src="src/img/imagem do figma.png" alt="avatar">
+        <img class="avatar" src="../img/imagem do figma.png" alt="avatar">
         <span class="nome_do_avatar">Thomas</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
           <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
@@ -81,7 +83,7 @@
         </div>
       </div>
       <div class="infos">
-        <img src="src/img/ceu da lingua.png" alt="Imagem descritiva">
+        <img src="../img/ceu da lingua.png" alt="Imagem descritiva">
         <div class="texto">
           <h1 class="nome_do_evento">O Céu da Língua</h1>
           <p class="descricao_do_evento">Gregorio Duvivier tem na língua portuguesa não somente uma pátria mas uma obsessão. Ou, como dizem os
@@ -92,7 +94,16 @@
       </div>
     </div>
   </main>
-  
-  <script src="src/js/feedback.js"></script>
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+  <script src="../js/feedback.js"></script>
 </body> 
 </html>

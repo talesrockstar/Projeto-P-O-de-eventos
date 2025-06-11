@@ -1,164 +1,161 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Evento</title>
-    <link rel="stylesheet" href="src/css/criar_evento.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <title>Página de Criação de Eventos</title>
+  <link rel="stylesheet" href="../css/Criar_Evento.css">
+  <link rel="stylesheet" href="../css/global.css">
 </head>
+
 <body>
-    <div class="container">
-        <header>
-      <div class="container">
-        <nav class="navbar">
-          <div class="container-fluid">
-            <div class="voltar">
-              <a class="navbar-brand" href="https://www.globo.com" style="font-weight: 600">
-                <svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
-                </svg>
-                Plannea
-              </a>
-            </div>
-            <div class="perfil">
-              <img src="../img/FOTO_PERFIL.png" class="mx-auto d-block" alt="...">
-              <li class="list-unstyled nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 400">
-                  Thomas
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="https:\\globo.com">Ver Perfil</a></li>
-                </ul>
-              </li>
-            </div>
-          </div>
-        </nav>
+  <header>
+    <div class="header">
+      <div class="left-section">
+        <a href="index-logado.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-left"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+          </svg>
+        </a>
+        <span class="logo">Plannea</span>
       </div>
-    </header>
 
-        <main class="main-content">
-            <h1 class="page-title">Criar Evento</h1>
-
-            <form id="event-form" class="event-form">
-                <!-- Seção 1: Informações básicas -->
-                <section class="form-section">
-                    <h2 class="section-title"><span class="section-number">1.</span> Informações básicas</h2>
-                    
-                    <div class="form-group">
-                        <label for="event-name">Nome do evento</label>
-                        <input type="text" id="event-name" placeholder="Digite o título">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="event-image">Imagem do evento</label>
-                        <div class="image-upload">
-                            <div class="image-upload-placeholder">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="white" stroke-width="2"/>
-                                    <circle cx="8.5" cy="8.5" r="1.5" fill="white"/>
-                                    <path d="M21 15L16 10L5 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                <span class="plus-icon">+</span>
-                            </div>
-                            <input type="file" id="event-image" accept="image/*" hidden>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="event-type">Tipo de evento</label>
-                            <div class="select-wrapper">
-                                <select id="event-type">
-                                    <option value="" disabled selected>Selecione uma opção</option>
-                                    <option value="presencial">Presencial</option>
-                                    <option value="online">Online</option>
-                                    <option value="hibrido">Híbrido</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="participants-range">Faixa de participantes</label>
-                            <div class="select-wrapper">
-                                <select id="participants-range">
-                                    <option value="" disabled selected>Selecione a quantidade</option>
-                                    <option value="1-10">1-10</option>
-                                    <option value="11-50">11-50</option>
-                                    <option value="51-100">51-100</option>
-                                    <option value="100+">Mais de 100</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Seção 2: Descrição do evento -->
-                <section class="form-section">
-                    <h2 class="section-title"><span class="section-number">2.</span> Descrição do evento</h2>
-                    <div class="form-group">
-                        <label for="event-description">Conte os detalhes do seu evento</label>
-                        <textarea id="event-description" rows="6" placeholder="Digite aqui os detalhes do evento"></textarea>
-                    </div>
-                </section>
-
-                <!-- Seção 3: Data e horário -->
-                <section class="form-section">
-                    <h2 class="section-title"><span class="section-number">3.</span> Data e horário</h2>
-                    
-                    <div class="form-row date-time-row">
-                        <div class="form-group">
-                            <label for="event-date">Data do evento</label>
-                            <input type="text" id="event-date" placeholder="DD/MM/AAAA" class="date-input">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="event-time">Hora do evento</label>
-                            <input type="text" id="event-time" placeholder="00:00" class="time-input">
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Seção 4: Local do evento -->
-                <section class="form-section">
-                    <h2 class="section-title"><span class="section-number">4.</span> Local do evento</h2>
-                    <p class="section-subtitle">Endereço e referência</p>
-                    
-                    <div class="form-group">
-                        <label for="event-address">Digite o endereço</label>
-                        <input type="text" id="event-address" placeholder="Digite o endereço">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="street-name">Nome da rua</label>
-                        <input type="text" id="street-name" placeholder="Digite o nome da rua">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="event-cep">CEP</label>
-                        <input type="text" id="event-cep" placeholder="Digite o CEP">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="event-city">Cidade</label>
-                        <input type="text" id="event-city" placeholder="Digite o nome da cidade">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="event-state">Estado</label>
-                        <input type="text" id="event-state" placeholder="Digite o nome do estado">
-                    </div>
-                </section>
-
-                <!-- Botões de ação -->
-                <div class="form-actions">
-                    <button type="button" class="btn-cancel">Cancelar</button>
-                    <button type="submit" class="btn-create">Criar evento</button>
-                </div>
-            </form>
-        </main>
+      <div class="right-section">
+        <img class="avatar" src="../img/imagem do figma.png" alt="avatar">
+        <span class="nome_do_avatar">Thomas</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill"
+          viewBox="0 0 16 16">
+          <path
+            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+        </svg>
+        <div class="notification">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
+          </svg>
+          <span class="notification-dot"></span>
+        </div>
+      </div>
     </div>
+  </header>
 
-    <script src="src/js/criar_evento.js"></script>
+  <main>
+    <h1>Criar Evento</h1>
+    <div class="container caixa-destaque">
+      <h2>1. Informações Básicas</h2>
+      <form id="every-form">
+
+        <div class="caixa-destaque">
+          <label for="every-title" class="form-label">Título do Evento</label>
+          <input type="text" class="every-title" id="every-title" placeholder="Digite o título do evento">
+        </div>
+
+        <div class="caixa-destaque">
+          <label for="every-image">Imagem do Evento</label>
+          <div class="quadrado">
+            <svg width="70" height="70" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="3" width="18" height="18" rx="2" stroke="white" stroke-width="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" fill="white" />
+              <path d="M21 15L16 10L5 21" stroke="white" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span class="plus-icon">+</span>
+          </div>
+          <div>
+            <input type="file" id="every-image" accept="image/*">
+            <img id="preview" style="display: none; max-width: 100%; margin-top: 10px;" />
+          </div>
+        </div>
+
+        <div class="linha-flex">
+          <div>
+            <label for="tipo">Tipo de Evento</label>
+            <select id="tipo" name="tipo">
+              <option value="Presencial">Presencial</option>
+              <option value="Online">Online</option>
+              <option value="Híbrido">Híbrido</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label for="participantes" class="form-label">Número Total de Participantes</label>
+            <input type="number" class="participantes" id="participantes"
+              placeholder="Digite o número de participantes">
+          </div>
+
+        </div>
+
+        <div class="caixa-destaque">
+          <h2> 2. Descrição Detalhada </h2>
+          <label>Conte os detalhes do seu evento</label>
+          <textarea id="every-description" placeholder="Digite a descrição do seu evento" required></textarea>
+        </div>
+
+        <h2>3. Data e horário</h2>
+        <div class="linha-flex">
+          <div>
+            <label for="inicio">Data e Hora de Início</label>
+            <input type="datetime-local" id="inicio" name="inicio">
+          </div>
+
+          <div class="col-md-6">
+            <label for="fim" class="form-label">Data e Hora de Término</label>
+            <input type="datetime-local" class="form-label" id="Data e Hora de Término">
+          </div>
+        </div>
+
+        <h2>4. Local do evento</h2>
+        <div class="caixa-destaque">
+          <label for="every-location" class="form-label">Informe o endereço</label>
+          <input type="text" class="form-label" id="every-location" placeholder="Digite o endereço do evento">
+
+          <label for="nome-location" class="form-label">Nome do local</label>
+          <input type="text" class="form-label" id="nome-location" placeholder="Digite o nome do local">
+
+          <label for="CEP-location" class="form-label">CEP</label>
+          <input type="text" class="form-label" id="CEP-location" placeholder="______-___">
+
+          <label for="every-city" class="form-label">Cidade</label>
+          <input type="text" class="form-label" id="every-city" placeholder="Digite o nome da Cidade">
+
+          <label for="every-estado" class="form-label">Estado</label>
+          <input type="text" class="form-label" id="every-estado" placeholder="Digite o nome do Estado">
+        </div>
+
+        <div class="buttons caixa-destaque">
+          <button type="reset" style="background-color: #666666; color: #ffffff;">Cancelar Evento</button>
+          <button type="submit">Criar Evento</button>
+        </div>
+
+        <div class="mensagem erro caixa-destaque" style="display: none;">
+          <p>Erro ao criar o evento. Tente Novamente</p>
+          <button type="button" class="close">Fechar</button>
+        </div>
+
+        <div class="mensagem sucesso caixa-destaque" style="display: none;">
+          <p>Evento criado com sucesso</p>
+          <button type="button" class="close">Fechar</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+  <script src="../js/Criar_Evento.js"></script>
+  <script src="../js/perfil-global.js"></script>
 </body>
+
 </html>

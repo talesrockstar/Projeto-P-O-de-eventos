@@ -4,8 +4,39 @@
     box-sizing: border-box;
 }
 
-/* variáveis de cores, outros estilos e/ou reset de font-size */ 
+.header {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 40px;
+}
 
-:root {
-    --red: red;
+
+.left-section,
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.notification {
+    margin-left: 30px;
+    position: relative;
+}
+
+.right-section span {
+    color: white;
+    font-size: 16px;
 }

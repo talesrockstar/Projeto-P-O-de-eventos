@@ -1,35 +1,5 @@
 let carrossel1 = document.querySelector('.carrossel1');
 
-carrossel1.innerHTML += `<div class="card">
-                            <img src="src/img/patati.svg" class="card-img-top" alt="imagem patati patata evento">
-                            <div class="card-body">
-                                <p id="Local">Natal, Rj</p>
-                                <p id="Nome_evento">Patati circo show</p>
-                                <p id="Tipo_evento">Infantil</p>
-                                <p id="Data_evento">21 de maio - 25 de maio</p>
-                            </div>
-                        </div>`
-
-carrossel1.innerHTML += `<div class="card">
-                            <img src="src/img/patati.svg" class="card-img-top" alt="imagem patati patata evento">
-                            <div class="card-body">
-                                <p id="Local">Natal, RN</p>
-                                <p id="Nome_evento">Patati circo show</p>
-                                <p id="Tipo_evento">Infantil</p>
-                                <p id="Data_evento">21 de maio - 25 de maio</p>
-                            </div>
-                        </div>`
-                        
-carrossel1.innerHTML += `<div class="card">
-                            <img src="src/img/patati.svg" class="card-img-top" alt="imagem patati patata evento">
-                            <div class="card-body">
-                                <p id="Local">Natal, RN</p>
-                                <p id="Nome_evento">Patati circo show</p>
-                                <p id="Tipo_evento">Infantil</p>
-                                <p id="Data_evento">21 de maio - 25 de maio</p>
-                            </div>
-                        </div>`
-
 const inputstatus = document.getElementById('StatusSelect');
 const inputlocal = document.querySelector('#StatusLocal');
 const inputtipo = document.getElementById('Tipo');

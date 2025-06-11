@@ -159,6 +159,10 @@ button:hover {
     gap: 10px;
 }
 
+.left-section a {
+    color: white;
+}
+
 .logo {
     font-weight: bold;
     font-size: 20px;

@@ -1,4 +1,48 @@
+// Função para carregar dados do usuário na página de perfil
+function carregarDadosUsuario() {
+    const dadosUsuario = localStorage.getItem('dadosUsuario')
+    
+    if (dadosUsuario) {
+        const dados = JSON.parse(dadosUsuario)
+        
+        // Atualizar campos de texto
+        document.getElementById('nome').value = dados.nome || 'Thomas'
+        document.getElementById('email').value = dados.email || 'thomas123@gmail.com'
+        document.getElementById('endereco').value = dados.endereco || 'Rua das Acácias, 123 - Bairro Jardim das Flores'
+        document.getElementById('telefone').value = dados.telefone || '(31) 99876-5432'
+        
+        // Atualizar imagem de perfil
+        const imagemPerfil = document.querySelector('.avatar img')
+        if (dados.imagemPerfil && dados.imagemPerfil !== 'src/img/Image.svg') {
+            imagemPerfil.src = dados.imagemPerfil
+        }
+    }
+}
+
+// Função para salvar alterações no perfil
+function salvarAlteracoesPerfil() {
+    const dadosUsuario = localStorage.getItem('dadosUsuario')
+    
+    if (dadosUsuario) {
+        const dados = JSON.parse(dadosUsuario)
+        
+        // Atualizar dados com os valores dos campos
+        dados.nome = document.getElementById('nome').value
+        dados.email = document.getElementById('email').value
+        dados.endereco = document.getElementById('endereco').value
+        dados.telefone = document.getElementById('telefone').value
+        
+        // Salvar no localStorage
+        localStorage.setItem('dadosUsuario', JSON.stringify(dados))
+        
+        console.log('Dados do perfil atualizados')
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
+    // Carregar dados do usuário primeiro
+    carregarDadosUsuario()
+    
     // Referências aos elementos
     const botoesEditar = document.querySelectorAll('.edit-button')
     const campos = document.querySelectorAll('input')
@@ -26,12 +70,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Remove classe de destaque
                 campo.classList.remove('editando')
 
-                // Aqui você poderia adicionar código para salvar o valor em um servidor
+                // Salvar alterações no localStorage
+                salvarAlteracoesPerfil()
+
                 console.log(`Campo ${campo.id} atualizado para: ${campo.value}`)
             }
         });
     });
-
 
     // Evento para o botão de alterar foto
     botaoAlterarFoto.addEventListener('click', function () {
@@ -55,9 +100,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 leitor.onload = function (e) {
                     // Atualiza a imagem do avatar com a nova imagem
                     imagemAvatar.src = e.target.result
+                    
+                    // Atualizar dados no localStorage
+                    const dadosUsuario = localStorage.getItem('dadosUsuario')
+                    if (dadosUsuario) {
+                        const dados = JSON.parse(dadosUsuario)
+                        dados.imagemPerfil = e.target.result
+                        localStorage.setItem('dadosUsuario', JSON.stringify(dados))
+                    }
 
-                    // Aqui você poderia adicionar código para enviar a imagem para um servidor
-                    console.log('Nova foto de perfil selecionada')
+                    console.log('Nova foto de perfil selecionada e salva')
                 }
 
                 // Lê o arquivo como URL de dados
@@ -69,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     })
 
-
     // Adicionar estilo para campos em edição no CSS dinâmico
     const estilo = document.createElement('style');
     estilo.textContent = `
@@ -80,3 +131,4 @@ document.addEventListener('DOMContentLoaded', function () {
     `
     document.head.appendChild(estilo)
 })
+
