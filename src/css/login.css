@@ -82,6 +82,17 @@ button.btn:hover {
     text-decoration: none;
 }
 
+.cadastre {
+    color: #3C8AF0;
+    background-color: transparent;
+    font-family: Poppins, 'Inter', sans-serif;
+    font-size: 12px;
+    text-align: left;
+    text-decoration: none;
+    margin-top: -18px;
+    margin-left: 2px;
+}
+
 .input-svg {
     position: relative;
     display: inline-block;
