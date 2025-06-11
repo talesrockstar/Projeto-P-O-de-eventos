@@ -16,6 +16,11 @@ body {
     color: white;
 }
 
+.right-section a {
+    text-decoration: none;
+    color: white;
+}
+
 .notification-dot {
     position: absolute;
     top: 0px;
@@ -226,7 +231,11 @@ button:hover {
 
 .linha-flex input {
     width: 100%;
-    
+}
+
+.linha-flex select {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .linha-flex>div {

@@ -231,6 +231,11 @@ body {
   flex-shrink: 0;
 }
 
+.container-usuario a {
+  color: white;
+  text-decoration: none;
+}
+
 .avatar-usuario {
   width: 36px;
   height: 36px;

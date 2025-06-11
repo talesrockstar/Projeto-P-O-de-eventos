@@ -2,8 +2,7 @@ body {
     background-image: url("../img/imgfundo2.svg");
     background-size: cover;
     background-repeat: no-repeat;
-    
-    height: 100vh;
+    height: 100%;
     font-family: Poppins, 'Inter', sans-serif;
 }
 

@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Adicionar evento de clique para o ícone de voltar no cabeçalho
     document.querySelector(".left-section").addEventListener("click", function() {
-      window.location.href = "feedback.html";
+      window.location.href = "index-logado.html";
     });
   });
   

@@ -26,7 +26,7 @@ document.getElementById("cancelar").addEventListener("click", function () {
 })
 
 document.getElementById("confirmarCompra").addEventListener("click", function () {
-  window.location.href = "https://www.globo.com";
+  window.location.href = "../pages/feedback.html";
 })
 
 document.querySelectorAll('input[class="form-check-input"]').forEach(radio => {
