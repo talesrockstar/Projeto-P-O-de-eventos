@@ -1,4 +1,4 @@
-describe('Button operation and page redirection', () => {
+  describe('Button operation and page redirection', () => {
   beforeEach(() => {
     cy.visit('cancelar_inscricao.html');
   });

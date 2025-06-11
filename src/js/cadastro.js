@@ -75,6 +75,6 @@ formCadastro.addEventListener('submit', function(e) {
 
     // Redirecionar para página de login
     setTimeout(() => {
-        window.location.href = 'login.html'
+        window.location.href = 'index-logado.html'
     }, 1000)
 })
